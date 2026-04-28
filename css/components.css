@@ -24,10 +24,10 @@
     margin-top: 0;
 }
 
-/* ==================== HERO SLIDESHOW ==================== */
+/* HERO */
 .hero {
-    height: 85vh;
-    min-height: 520px;
+    height: 72vh;
+    min-height: 480px;
     position: relative;
     overflow: hidden;
 }
@@ -58,15 +58,14 @@
     z-index: 2;
 }
 
-/* Force white text on hero */
 .hero-content h1,
 .hero-content p {
     color: white !important;
 }
 
-/* ==================== WHO WE ARE ==================== */
+/* WHO WE ARE */
 .who-we-are {
-    padding: 100px 0;
+    padding: 70px 0;
     background: var(--light-bg);
 }
 
@@ -77,33 +76,33 @@
 }
 
 .who-we-are h2 {
-    margin-bottom: 32px;
+    margin-bottom: 24px;
     color: #3f4a3f;
 }
 
 .who-we-are p {
     font-size: 1.18rem;
     line-height: 1.8;
-    margin-bottom: 26px;
+    margin-bottom: 20px;
     color: #444;
 }
 
-/* ==================== TOP SELLERS ==================== */
+/* TOP SELLERS */
 .top-sellers {
-    padding: 100px 0;
+    padding: 80px 0;
     background: white;
 }
 
 .top-sellers h2 {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 50px;
     color: #3f4a3f;
 }
 
 .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 40px;
+    gap: 35px;
     max-width: 1100px;
     margin: 0 auto;
 }
@@ -113,29 +112,29 @@
     border-radius: 16px;
     overflow: hidden;
     text-align: center;
-    padding-bottom: 30px;
+    padding-bottom: 25px;
 }
 
 .product-card img {
     width: 100%;
-    height: 340px;
+    height: 320px;
     object-fit: cover;
 }
 
 .product-card h3 {
-    margin: 20px 0 8px;
-    font-size: 1.35rem;
-    color: #3f4a3f;
+    margin: 18px 0 8px;
+    font-size: 1.3rem;
+    color: #2c2c2c;
 }
 
 .product-card .price {
-    font-size: 1.4rem;
+    font-size: 1.35rem;
     font-weight: 600;
     color: var(--primary-green);
     margin-bottom: 16px;
 }
 
-/* ==================== TESTIMONIALS - SHORTER BOXES ==================== */
+/* ==================== TESTIMONIALS - ONLY 3 VISIBLE ==================== */
 .testimonials {
     padding: 100px 0;
     background: #e8f0e8;
@@ -148,21 +147,20 @@
 }
 
 .testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-    gap: 30px;
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 25px !important;
     max-width: 1250px;
     margin: 0 auto;
 }
 
 .testimonial-card {
     background: white;
-    padding: 45px 40px 35px;
+    padding: 45px 40px;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    position: relative;
     text-align: center;
-    min-height: 260px;
+    min-height: 280px;
 }
 
 .quote-icon {
@@ -178,104 +176,27 @@
 
 .testimonial-card p {
     font-size: 1.2rem;
-    line-height: 1.7;
+    line-height: 1.75;
     color: #444;
     margin: 45px 0 0;
 }
 
-/* Mobile */
+/* Mobile - Single card */
 @media (max-width: 768px) {
-    .hero { height: 78vh; min-height: 480px; }
-    .who-we-are, .top-sellers, .testimonials { padding: 80px 0; }
-    
     .testimonials-grid {
-        display: block;
+        display: block !important;
         position: relative;
-        height: 340px;
+        height: 360px;
     }
     
     .testimonial-card {
         position: absolute;
         width: 100%;
         opacity: 0;
-        transition: opacity 0.8s ease;
+        transition: opacity 1s ease;
     }
     
     .testimonial-card.active {
         opacity: 1;
-    }
-}
-
-/* ==================== PRICE LIST PAGE ==================== */
-.price-hero {
-    padding: 120px 0 80px;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                url('images/slideshow/jeremy-wong-weddings-464ps_nOflw-unsplash.jpg') center/cover no-repeat;
-    color: white;
-    text-align: center;
-}
-
-.price-hero h1 {
-    font-size: clamp(2.8rem, 6vw, 4rem);
-    margin-bottom: 12px;
-}
-
-.price-hero p {
-    font-size: 1.25rem;
-    opacity: 0.95;
-}
-
-/* Price List Content */
-.price-list {
-    padding: 80px 0;
-    background: var(--light-bg);
-}
-
-.price-category {
-    margin-bottom: 60px;
-}
-
-.price-category h2 {
-    color: #3f4a3f;
-    margin-bottom: 25px;
-    padding-bottom: 12px;
-    border-bottom: 2px solid var(--primary-green);
-    font-size: 1.8rem;
-}
-
-.price-category ul {
-    list-style: none;
-}
-
-.price-category li {
-    display: flex;
-    justify-content: space-between;
-    padding: 14px 0;
-    border-bottom: 1px solid #e0e0e0;
-    font-size: 1.15rem;
-}
-
-.price-category li:last-child {
-    border-bottom: none;
-}
-
-.price-category span {
-    font-weight: 600;
-    color: var(--primary-green);
-}
-
-/* Mobile Improvements */
-@media (max-width: 768px) {
-    .price-hero {
-        padding: 100px 0 60px;
-    }
-    
-    .price-category {
-        margin-bottom: 50px;
-    }
-    
-    .price-category li {
-        font-size: 1.1rem;
-        padding: 16px 0;
     }
 }

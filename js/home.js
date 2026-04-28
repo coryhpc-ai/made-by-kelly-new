@@ -1,7 +1,7 @@
 // js/home.js
 document.addEventListener('DOMContentLoaded', () => {
 
-    // === HERO SLIDESHOW ===
+    // HERO SLIDESHOW
     const slides = document.querySelectorAll('.hero-slide');
     const dots = document.querySelectorAll('.hero-dot');
     let currentSlide = 0;
@@ -13,40 +13,33 @@ document.addEventListener('DOMContentLoaded', () => {
         dots[n].classList.add('active');
     }
 
-    setInterval(() => {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
-    }, 6000);
-
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            currentSlide = index;
+    if (slides.length > 0) {
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
             showSlide(currentSlide);
+        }, 6000);
+    }
+
+    // TESTIMONIALS - GROUP ROTATION (3 on desktop)
+    const allCards = document.querySelectorAll('.testimonial-card');
+    let currentGroup = 0;
+    const cardsPerGroup = 3;
+
+    function showNextGroup() {
+        allCards.forEach(card => {
+            card.classList.remove('active');
         });
-    });
 
-    // === TESTIMONIALS CENTERED CAROUSEL ===
-    const track = document.getElementById('testimonialTrack');
-    if (track) {
-        let currentIndex = 1; // Start with middle card visible
-        const cards = document.querySelectorAll('.testimonial-card');
-        const total = cards.length;
-
-        function updateCarousel() {
-            const offset = (currentIndex - 1) * -100;
-            track.style.transform = `translateX(${offset}%)`;
+        const start = currentGroup * cardsPerGroup;
+        for (let i = start; i < start + cardsPerGroup && i < allCards.length; i++) {
+            allCards[i].classList.add('active');
         }
 
-        function nextSlide() {
-            currentIndex = (currentIndex + 1) % total;
-            if (currentIndex === 0) currentIndex = 1; // Keep center bias
-            updateCarousel();
-        }
+        currentGroup = (currentGroup + 1) % Math.ceil(allCards.length / cardsPerGroup);
+    }
 
-        // Auto rotate every 5 seconds
-        setInterval(nextSlide, 5000);
-
-        // Initial position
-        updateCarousel();
+    if (allCards.length > 0) {
+        showNextGroup(); // Show first group
+        setInterval(showNextGroup, 6000); // Rotate every 6 seconds
     }
 });

@@ -2,59 +2,68 @@
 
 /* HERO */
 .price-hero {
-    padding: 140px 0 90px;
+    padding: 110px 0 80px;
     background: var(--accent-beige);
     color: #2c2c2c;
     text-align: center;
 }
 
 .price-hero h1 {
-    font-size: clamp(2.8rem, 7vw, 4.2rem);
-    margin-bottom: 16px;
+    font-size: clamp(2.4rem, 6vw, 3.5rem);
+    margin-bottom: 12px;
 }
 
 .price-hero p {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     color: #555;
 }
 
-/* PRICE LIST - 2 COLUMN LAYOUT */
+/* PRICE LIST */
 .price-list {
-    padding: 80px 0;
+    padding: 70px 0;
     background: white;
 }
 
 .price-category {
-    margin-bottom: 70px;
+    margin-bottom: 60px;
 }
 
 .price-category h2 {
     color: #2c2c2c;
-    margin-bottom: 25px;
-    padding-bottom: 15px;
+    margin-bottom: 22px;
+    padding-bottom: 12px;
     border-bottom: 3px solid var(--primary-green);
-    font-size: 2.1rem;
+    font-size: 1.85rem;
 }
 
 .price-items {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 12px;
 }
 
+/* PRICE ROWS - Slightly bigger than heading */
 .price-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #fbf9f5;
-    padding: 18px 24px;
+    background: white;
+    padding: 20px 26px;           /* Slightly bigger padding */
     border-radius: 12px;
-    font-size: 1.12rem;
-    color: #2c2c2c;           /* Black text for items */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
+    font-size: 1.1rem;
+    color: #2c2c2c;
+    min-height: 68px;             /* Nice balanced height */
+    transition: all 0.3s ease;
+}
+
+.price-row:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
 }
 
 .price-row span:first-child {
-    color: #2c2c2c;           /* Black item name */
+    color: #2c2c2c;
     font-weight: 500;
 }
 
@@ -65,13 +74,14 @@
 
 /* Mobile */
 @media (max-width: 768px) {
-    .price-hero { padding: 100px 0 70px; }
+    .price-hero { padding: 90px 0 60px; }
     
     .price-items {
         grid-template-columns: 1fr;
     }
     
     .price-row {
-        padding: 16px 20px;
+        padding: 17px 22px;
+        min-height: 64px;
     }
 }

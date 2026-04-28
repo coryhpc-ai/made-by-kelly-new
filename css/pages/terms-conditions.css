@@ -1,0 +1,68 @@
+/* css/pages/terms-conditions.css */
+
+.terms-page {
+    padding: 100px 0 120px;
+    background: white;
+}
+
+.terms-page h1 {
+    text-align: center;
+    font-size: clamp(2.6rem, 6vw, 3.6rem);
+    color: #3f4a3f;
+    margin-bottom: 70px;
+}
+
+.terms-content {
+    max-width: 780px;
+    margin: 0 auto;
+    font-size: 1.08rem;
+    line-height: 1.9;
+    color: #444;
+    text-align: center;
+}
+
+.terms-content p {
+    margin-bottom: 34px;
+}
+
+/* Cool faded green line */
+.terms-content h2 {
+    color: #3f4a3f;
+    margin: 60px 0 25px;
+    font-size: 1.45rem;
+    text-align: center;
+    position: relative;
+}
+
+.terms-content h2::before {
+    content: '';
+    display: block;
+    width: 160px;
+    height: 2px;
+    background: linear-gradient(to right, transparent 0%, #8fa88f 20%, #8fa88f 80%, transparent 100%);
+    margin: 0 auto 22px;
+}
+
+/* FLOATING PLACE AN ORDER BUTTON */
+.floating-order-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--primary-green);
+    color: white;
+    padding: 14px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    z-index: 1000;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.floating-order-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    background: #7a917a;
+}

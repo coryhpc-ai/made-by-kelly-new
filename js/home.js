@@ -20,26 +20,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 6000);
     }
 
-    // TESTIMONIALS - GROUP ROTATION (3 on desktop)
-    const allCards = document.querySelectorAll('.testimonial-card');
-    let currentGroup = 0;
-    const cardsPerGroup = 3;
+    // TESTIMONIALS - SINGLE CARD FADE
+    const testimonialCards = document.querySelectorAll('.testimonial-card');
+    let currentTestimonial = 0;
 
-    function showNextGroup() {
-        allCards.forEach(card => {
-            card.classList.remove('active');
-        });
-
-        const start = currentGroup * cardsPerGroup;
-        for (let i = start; i < start + cardsPerGroup && i < allCards.length; i++) {
-            allCards[i].classList.add('active');
-        }
-
-        currentGroup = (currentGroup + 1) % Math.ceil(allCards.length / cardsPerGroup);
+    function fadeNextTestimonial() {
+        testimonialCards.forEach(card => card.classList.remove('active'));
+        currentTestimonial = (currentTestimonial + 1) % testimonialCards.length;
+        testimonialCards[currentTestimonial].classList.add('active');
     }
 
-    if (allCards.length > 0) {
-        showNextGroup(); // Show first group
-        setInterval(showNextGroup, 6000); // Rotate every 6 seconds
+    if (testimonialCards.length > 0) {
+        testimonialCards[0].classList.add('active'); // Show first one
+        setInterval(fadeNextTestimonial, 5000);     // Change every 5 seconds
     }
 });

@@ -1,0 +1,154 @@
+/* css/layout.css */
+
+/* HEADER */
+.header {
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+    position: relative;
+}
+
+/* Desktop Navigation */
+.nav-left, .nav-right {
+    display: none;
+}
+
+.nav-left ul, .nav-right ul {
+    display: flex;
+    gap: 28px;
+}
+
+.nav-left a, .nav-right a {
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-left a:hover, .nav-right a:hover {
+    color: var(--primary-green);
+}
+
+/* Logo */
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #3f4a3f;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: #8fa88f;
+}
+
+/* Burger Menu */
+.burger-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 1001;
+}
+
+.burger-menu span {
+    width: 28px;
+    height: 3px;
+    background: #555555;
+    transition: all 0.3s ease;
+}
+
+/* Burger Animation */
+.burger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.burger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+.burger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 15px;
+    background: white;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    padding: 20px 0;
+    z-index: 999;
+    width: fit-content;
+    min-width: 180px;
+    max-width: 280px;
+}
+
+.mobile-menu.active {
+    display: block;
+}
+
+.mobile-menu ul {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0 28px;
+}
+
+.mobile-menu a {
+    font-size: 1.15rem;
+    padding: 6px 0;
+    display: block;
+    white-space: nowrap;
+    color: #333;
+}
+
+/* ====================== DESKTOP ====================== */
+@media (min-width: 992px) {
+    .nav-left, .nav-right {
+        display: block;
+    }
+    
+    .burger-menu {
+        display: none;
+    }
+    
+    .header-content {
+        padding: 20px 0;
+    }
+    
+    .logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .mobile-menu {
+        display: none !important;
+    }
+}
+
+/* ====================== MOBILE ====================== */
+@media (max-width: 991px) {
+    .logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .burger-menu {
+        margin-left: auto;
+    }
+}

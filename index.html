@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Made by Kelly | Handcrafted Gifts</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-content container">
+            <nav class="nav-left">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="bridesmaid-gifts.html">Bridesmaid Gifts</a></li>
+                    <li><a href="gift-sets.html">Gift Sets</a></li>
+                </ul>
+            </nav>
+
+            <a href="index.html" class="logo">
+                Made by <span>Kelly</span>
+            </a>
+
+            <nav class="nav-right">
+                <ul>
+                    <li><a href="price-list.html">Price List</a></li>
+                    <li><a href="customize.html">Customize</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <button class="burger-menu" id="burger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="bridesmaid-gifts.html">Bridesmaid Gifts</a></li>
+                <li><a href="gift-sets.html">Gift Sets</a></li>
+                <li><a href="price-list.html">Price List</a></li>
+                <li><a href="customize.html">Customize</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- HERO SLIDESHOW -->
+    <section class="hero">
+        <div class="hero-slides">
+            <div class="hero-slide active" style="background-image: url('images/slideshow/jennifer-kalenberg-3nx3qOwSSLs-unsplash.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('images/slideshow/jeremy-wong-weddings-464ps_nOflw-unsplash.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('images/slideshow/kelsey-chance-tAH2cA_BL5g-unsplash.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('images/slideshow/shayna-douglas-GV89QxUF4VI-unsplash.jpg');"></div>
+        </div>
+
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <h1>Handcrafted Gifts<br>That Make You Feel Cherished</h1>
+                <p>Beautifully made with love for weddings, special occasions & everyday moments</p>
+                <a href="shop.html" class="btn-primary">Shop the Collection</a>
+            </div>
+        </div>
+
+        <div class="hero-dots">
+            <div class="hero-dot active" data-slide="0"></div>
+            <div class="hero-dot" data-slide="1"></div>
+            <div class="hero-dot" data-slide="2"></div>
+            <div class="hero-dot" data-slide="3"></div>
+        </div>
+    </section>
+
+    <!-- WHO WE ARE -->
+    <section class="who-we-are">
+        <div class="container">
+            <div class="who-we-are-content">
+                <h2>Who We Are</h2>
+                <p>We are a small team who handcraft all our pieces in Kelly’s studio. We’ve always been passionate about creating beautiful gifts and we absolutely love all sorts of crafts.</p>
+                <p>We take great pride in bringing every project to life. No project is too small and we’re open to your ideas. Any questions, please feel free to ask x</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TOP SELLERS -->
+    <section class="top-sellers">
+        <div class="container">
+            <h2>Our Top Sellers</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="images/slideshow/productcard/bridesmaidbox.jpg" alt="Bridesmaid Box">
+                    <h3>Personalised Bridesmaid Box</h3>
+                    <p class="price">£28.00</p>
+                    <a href="#" class="btn-primary small">Shop Now</a>
+                </div>
+                <div class="product-card">
+                    <img src="images/slideshow/productcard/Flower girl.jpg" alt="Flower Girl">
+                    <h3>Flower Girl Basket</h3>
+                    <p class="price">£22.00</p>
+                    <a href="#" class="btn-primary small">Shop Now</a>
+                </div>
+                <div class="product-card">
+                    <img src="images/slideshow/productcard/robe back.jpg" alt="Bridal Robe">
+                    <h3>Personalised Bridal Robe</h3>
+                    <p class="price">£32.00</p>
+                    <a href="#" class="btn-primary small">Shop Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS - NO NAMES -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>Read what our customers say</h2>
+            
+            <div class="testimonials-grid" id="testimonialGrid">
+                <div class="testimonial-card active">
+                    <div class="quote-icon">“</div>
+                    <p>Kelly made the most beautiful personalised robes for my bridesmaids. Everyone cried when they opened them! The quality is outstanding.</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="quote-icon">“</div>
+                    <p>The flower girl basket was perfect and arrived so well packaged. My daughter felt like a princess. Highly recommend!</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="quote-icon">“</div>
+                    <p>Absolutely in love with my custom keepsake box. Kelly even added a special message inside. Will definitely order again!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/main.js"></script>
+    <script src="js/home.js"></script>
+</body>
+</html>

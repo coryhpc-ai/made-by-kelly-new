@@ -1,0 +1,32 @@
+/* css/base.css */
+:root {
+    --primary-green: #8fa88f;
+    --text-dark: #2c2c2c;
+    --accent-beige: #f8f4ed;
+    --light-bg: #fbf9f5;
+    
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+.container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    line-height: 1.15;
+    color: var(--text-dark);
+}
+
+h1 { 
+    font-size: clamp(2.4rem, 6vw, 3.8rem); 
+}
+
+p {
+    font-size: 1.05rem;
+    color: #444;
+}

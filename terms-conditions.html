@@ -4,98 +4,198 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms & Conditions | Made by Kelly</title>
-    
+    <meta name="description" content="Terms and conditions for Made by Kelly — handcrafted personalised gifts.">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    
-   <link rel="stylesheet" href="css/reset.css">
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/layout.css">
-<link rel="stylesheet" href="css/components.css">
-<link rel="stylesheet" href="css/pages/terms-conditions.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages/legal.css">
 </head>
 <body>
 
-   <!-- HEADER -->
     <header class="header">
         <div class="header-content container">
             <nav class="nav-left">
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="shop.html">Shop</a></li>
-                    <li><a href="shop.html">Bridesmaid Gifts</a></li>
+                    <li><a href="shop.html#bridesmaid">Bridesmaid Gifts</a></li>
                     <li><a href="gift-sets.html">Gift Sets</a></li>
                 </ul>
             </nav>
-
             <a href="index.html" class="logo">Made by <span>Kelly</span></a>
-
             <nav class="nav-right">
                 <ul>
                     <li><a href="price-list.html">Price List</a></li>
-                    <li><a href="shop.html">Customize</a></li>
+                    <li><a href="customize.html">Customize</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="#order">Contact</a></li>
+                    <li><a href="index.html#order">Contact</a></li>
                 </ul>
             </nav>
-
             <button class="burger-menu" id="burger" aria-label="Toggle menu">
                 <span></span><span></span><span></span>
             </button>
         </div>
-
         <div class="mobile-menu" id="mobileMenu">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="shop.html">Shop</a></li>
-                <li><a href="shop.html">Bridesmaid Gifts</a></li>
-                <li><a href="gift-sets.html">Gift Sets</a></li>
                 <li><a href="price-list.html">Price List</a></li>
-                <li><a href="customize.html">Customize</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="#order">Contact</a></li>
+                <li><a href="index.html#order">Contact</a></li>
             </ul>
         </div>
     </header>
 
-    <!-- TERMS PAGE -->
-    <section class="terms-page">
+    <section class="legal-hero">
         <div class="container">
-            <h1>Terms &amp; Conditions</h1>
-
-            <div class="terms-content">
-                <p>All items from Made by Kelly are handmade and personalised.</p>
-
-                <p>50% payment is required at the time of order, the other 50% when I’m ready to ship. 20% of the total order value is non-refundable and any refund requests must be made within 30 days of purchase.</p>
-
-                <p>Orders are completed in the order they are received. Turnaround times are 8-10 weeks, and up to 12 weeks for larger orders once order books are open.</p>
-
-                <h2>Add-ons</h2>
-                <p>Add-ons may be added up to 48 hours after an order is placed. Changes can only be made before the order has been printed or production has begun. Due to the personalised and handmade nature of all items, slight variations may occur and are not considered fault.</p>
-                <p>I won’t be held responsible for errors in personal details provided by the customer.</p>
-
-                <h2>Quality Control &amp; Issues</h2>
-                <p>All special order items are thoroughly inspected upon arrival from suppliers to ensure they meet quality standards before being dispatched. In the unlikely event that an item arrives damaged or defective, please contact Made by Kelly within 48 hours of receiving your order, providing clear photographic evidence.</p>
-
-                <p>Thank you for your understanding.</p>
-
-                <!-- WhatsApp Help -->
-                <div class="whatsapp-help">
-                    <p><strong>Any problems?</strong></p>
-                    <p>Message us directly on WhatsApp and we be happy to help.</p>
-                    <a href="https://wa.me/447123456789?text=Hi%20Kelly%2C%20I%20have%20a%20question%20about%20my%20order" 
-                       class="btn-primary" target="_blank">
-                        Message Kelly on WhatsApp
-                    </a>
-                </div>
-            </div>
+            <h1>Terms & Conditions</h1>
+            <p>Last updated: June 2026</p>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <main class="legal-body">
+        <div class="container">
+            <div class="legal-wrap">
+
+                <aside class="legal-nav">
+                    <p class="legal-nav-label">On this page</p>
+                    <ul>
+                        <li><a href="#general">General</a></li>
+                        <li><a href="#payment">Payment</a></li>
+                        <li><a href="#turnaround">Turnaround times</a></li>
+                        <li><a href="#changes">Changes & add-ons</a></li>
+                        <li><a href="#personalisation">Personalisation</a></li>
+                        <li><a href="#quality">Quality & issues</a></li>
+                        <li><a href="#refunds">Refunds</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </aside>
+
+                <div class="legal-content">
+
+                    <section id="general" class="legal-section">
+                        <h2>General</h2>
+                        <p>All items from Made by Kelly are handmade and personalised to order. By placing an order with us, you agree to the terms set out on this page.</p>
+                        <p>These terms apply to all orders placed via WhatsApp with Made by Kelly. If you have any questions before ordering, please don't hesitate to get in touch.</p>
+                    </section>
+
+                    <section id="payment" class="legal-section">
+                        <h2>Payment</h2>
+                        <p><strong>100% payment is required upfront</strong> at the time of placing your order to secure your place in the order queue.</p>
+                        <p>We accept payment securely through <strong>Stripe</strong>, which supports bank transfer, Apple Pay, Klarna and Clearpay. Your payment details are never stored by us.</p>
+                        <div class="legal-highlight">
+                            <strong>Please note:</strong> 20% of your total order value is non-refundable. This covers materials, time and any preparation work already completed on your order.
+                        </div>
+                    </section>
+
+                    <section id="turnaround" class="legal-section">
+                        <h2>Turnaround times</h2>
+                        <p>Orders are completed in the order they are received. Please allow the following turnaround times from the date your order is confirmed:</p>
+                        <ul>
+                            <li><strong>Standard orders</strong> — 8 to 10 weeks</li>
+                            <li><strong>Larger orders</strong> — up to 12 weeks</li>
+                        </ul>
+                        <p>Turnaround times apply once order books are open. Kelly will always keep you updated on the progress of your order via WhatsApp.</p>
+                        <p>If you have a specific date you need your order by (such as a wedding date), please mention this when placing your order so we can do our best to accommodate you.</p>
+                    </section>
+
+                    <section id="changes" class="legal-section">
+                        <h2>Changes & add-ons</h2>
+                        <p>Add-ons and changes to your order may be made <strong>within 48 hours of placing your order</strong>.</p>
+                        <p>After this window, changes can only be made if production has not yet begun on your items. Once printing or production has started, we are unable to make amendments.</p>
+                        <p>Please double-check all personalisation details — names, dates, spellings and messages — before confirming your order, as changes after production has started may not be possible.</p>
+                    </section>
+
+                    <section id="personalisation" class="legal-section">
+                        <h2>Personalisation</h2>
+                        <p>Due to the handmade and personalised nature of all items, <strong>slight variations may occur</strong> between items or from product photos. These are not considered a fault and are part of the handmade charm.</p>
+                        <p>Made by Kelly will not be held responsible for errors in personal details (names, spellings, dates, messages) provided by the customer. Please ensure all details are correct when placing your order.</p>
+                        <p>If you spot an error in the details you've sent, contact Kelly via WhatsApp as soon as possible — the sooner we know, the more likely we can correct it before production begins.</p>
+                    </section>
+
+                    <section id="quality" class="legal-section">
+                        <h2>Quality & issues</h2>
+                        <p>All items are thoroughly inspected before being dispatched to ensure they meet our quality standards.</p>
+                        <p>In the unlikely event that an item arrives damaged or defective, please contact Made by Kelly <strong>within 48 hours of receiving your order</strong>, providing clear photographic evidence of the issue.</p>
+                        <p>We will always do our best to resolve any issues quickly and fairly. Valid claims will be assessed on a case-by-case basis.</p>
+                    </section>
+
+                    <section id="refunds" class="legal-section">
+                        <h2>Refunds</h2>
+                        <p>Because all items are personalised and made to order, we are <strong>unable to offer refunds or exchanges</strong> unless an item arrives damaged or defective.</p>
+                        <p>Any refund requests must be made <strong>within 30 days of purchase</strong>. Please note that 20% of the total order value is non-refundable in all circumstances, as this covers materials and work already completed.</p>
+                        <p>Refunds will not be issued for:</p>
+                        <ul>
+                            <li>Errors in personalisation details provided by the customer</li>
+                            <li>Minor natural variations in handmade items</li>
+                            <li>Change of mind after production has begun</li>
+                        </ul>
+                    </section>
+
+                    <section id="contact" class="legal-section">
+                        <h2>Contact</h2>
+                        <p>If you have any questions about these terms, or need to discuss your order, please get in touch via WhatsApp — Kelly is always happy to help.</p>
+                        <div class="legal-contact-card">
+                            <strong>Made by Kelly</strong>
+                            <span>WhatsApp: <a href="https://wa.me/447305016480" target="_blank">+44 7305 016480</a></span>
+                            <span>Website: <a href="https://madebykelly.uk">madebykelly.uk</a></span>
+                        </div>
+                        <p>Thank you for supporting a small handmade business — it truly means everything. x</p>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
     <footer class="footer">
-        <!-- Your footer code here -->
+        <div class="container">
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Shop</h4>
+                    <a href="shop.html">All Products</a>
+                    <a href="shop.html#bridesmaid">Bridesmaid Gifts</a>
+                    <a href="gift-sets.html">Gift Sets</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Information</h4>
+                    <a href="price-list.html">Price List</a>
+                    <a href="customize.html">Customize</a>
+                    <a href="about.html">About</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <a href="terms-conditions.html">Terms & Conditions</a>
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="#">Shipping & Returns</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Handcrafted with love in the UK</p>
+                <p>&copy; 2026 Made by Kelly. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
 
-    <script src="../js/main.js"></script>
+    <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20place%20an%20order"
+       class="floating-order-btn" target="_blank">Place an Order</a>
+
+    <script src="js/main.js"></script>
+    <script>
+        const sections = document.querySelectorAll('.legal-section');
+        const navLinks = document.querySelectorAll('.legal-nav a');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    const active = document.querySelector(`.legal-nav a[href="#${entry.target.id}"]`);
+                    if (active) active.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+        sections.forEach(s => observer.observe(s));
+    </script>
 </body>
 </html>

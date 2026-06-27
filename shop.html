@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop | Made by Kelly</title>
-    
+    <meta name="description" content="Shop handcrafted personalised gifts for weddings, bridesmaids and special occasions. Made with love in the UK.">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages/shop.css">
 </head>
 <body>
 
@@ -20,71 +20,810 @@
             <nav class="nav-left">
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="shop.html">Shop</a></li>
-                    <li><a href="shop.html">Bridesmaid Gifts</a></li>
-                    <li><a href="shop.html">Gift Sets</a></li>
+                    <li><a href="shop.html" class="active">Shop</a></li>
+                    <li><a href="shop.html#bridesmaid">Bridesmaid Gifts</a></li>
+                    <li><a href="gift-sets.html">Gift Sets</a></li>
                 </ul>
             </nav>
-
             <a href="index.html" class="logo">Made by <span>Kelly</span></a>
-
             <nav class="nav-right">
                 <ul>
                     <li><a href="price-list.html">Price List</a></li>
-                    <li><a href="shop.html">Customize</a></li>
+                    <li><a href="customize.html">Customize</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="#order">Contact</a></li>
                 </ul>
             </nav>
-
             <button class="burger-menu" id="burger" aria-label="Toggle menu">
                 <span></span><span></span><span></span>
             </button>
         </div>
-
         <div class="mobile-menu" id="mobileMenu">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="shop.html">Shop</a></li>
-                <li><a href="shop.html">Bridesmaid Gifts</a></li>
-                <li><a href="shop.html">Gift Sets</a></li>
+                <li><a href="shop.html#bridesmaid">Bridesmaid Gifts</a></li>
+                <li><a href="gift-sets.html">Gift Sets</a></li>
                 <li><a href="price-list.html">Price List</a></li>
-                <li><a href="shop.html">Customize</a></li>
+                <li><a href="customize.html">Customize</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="#order">Contact</a></li>
             </ul>
         </div>
     </header>
 
-    <!-- SHOP HERO -->
-    <section class="page-hero">
+    <!-- HERO -->
+    <section class="shop-hero">
         <div class="container">
             <h1>Shop</h1>
-            <p>Browse our handcrafted collection</p>
+            <p>Handcrafted with love — personalised just for you</p>
         </div>
     </section>
 
-    <!-- COMING SOON -->
-    <section class="coming-soon">
+    <!-- FILTER TABS -->
+    <nav class="shop-filters" aria-label="Product categories">
+        <div class="shop-filters-inner">
+            <button class="filter-btn active" data-filter="all">All Products</button>
+            <button class="filter-btn" data-filter="clothing">Clothing</button>
+            <button class="filter-btn" data-filter="accessories">Accessories</button>
+            <button class="filter-btn" data-filter="drinkware">Drinkware</button>
+            <button class="filter-btn" data-filter="gifting">Gifting & Packaging</button>
+            <button class="filter-btn" data-filter="bridal">Bridal & Occasions</button>
+        </div>
+    </nav>
+
+    <!-- SHOP BODY -->
+    <main class="shop-body">
         <div class="container">
-            <div class="coming-soon-content">
-                <h2>Shop page coming soon...</h2>
-                <p>We are currently adding all our beautiful handcrafted products.</p>
-                <p>In the meantime, feel free to browse our <a href="price-list.html">Price List</a> or message Kelly directly for custom orders.</p>
-                
-                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27m%20interested%20in%20your%20products" 
-                   class="btn-primary" target="_blank">
-                    Message Kelly on WhatsApp
-                </a>
-            </div>
+
+            <!-- CLOTHING -->
+            <section class="shop-category" id="clothing" data-category="clothing">
+                <div class="category-header">
+                    <h2>Clothing</h2>
+                    <div class="category-header-line"></div>
+                    <span class="category-count">15 items</span>
+                </div>
+                <div class="products-grid">
+
+                    <div class="product-card">
+                        <div class="product-card-img">
+                            <img src="images/slideshow/productcard/robe back.jpg" alt="Custom Robe">
+                            <span class="card-badge badge-bestseller">Bestseller</span>
+                            <button class="heart-btn" aria-label="Save to wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+                        </div>
+                        <div class="product-card-body">
+                            <h3>Custom Robe</h3>
+                            <p class="product-card-desc">Personalised satin robe — perfect for brides and bridal parties.</p>
+                            <div class="swatches-row">
+                                <span class="swatch-label">Colour</span>
+                                <span class="swatch selected" style="background:#fff5f7;" title="Ivory"></span>
+                                <span class="swatch" style="background:#f5c6d0;" title="Blush"></span>
+                                <span class="swatch" style="background:#c8d8c8;" title="Sage"></span>
+                                <span class="swatch" style="background:#2c2c2c;" title="Black"></span>
+                                <span class="swatch" style="background:#b0c4d8;" title="Blue"></span>
+                            </div>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">£20.00</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20a%20Custom%20Robe" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img">
+                            <img src="images/slideshow/productcard/robe.jpg" alt="Lace Edge Robe">
+                            <span class="card-badge badge-popular">Popular</span>
+                            <button class="heart-btn" aria-label="Save to wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+                        </div>
+                        <div class="product-card-body">
+                            <h3>Lace Edge Robe</h3>
+                            <p class="product-card-desc">Elegant robe with a delicate lace trim — a beautiful finishing touch.</p>
+                            <div class="swatches-row">
+                                <span class="swatch-label">Colour</span>
+                                <span class="swatch selected" style="background:#fff5f7;" title="Ivory"></span>
+                                <span class="swatch" style="background:#f5c6d0;" title="Blush"></span>
+                                <span class="swatch" style="background:#d4b8c7;" title="Lilac"></span>
+                            </div>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">£18.00</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20a%20Lace%20Edge%20Robe" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>Personalised Slippers</h3>
+                            <p class="product-card-desc">Cosy personalised slippers — a wedding morning essential.</p>
+                            <div class="swatches-row">
+                                <span class="swatch-label">Colour</span>
+                                <span class="swatch selected" style="background:#fff;" title="White"></span>
+                                <span class="swatch" style="background:#f5c6d0;" title="Pink"></span>
+                                <span class="swatch" style="background:#2c2c2c;" title="Black"></span>
+                            </div>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">£9.00</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20Personalised%20Slippers" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>Groomsman Socks</h3>
+                            <p class="product-card-desc">Personalised black socks — a fun and thoughtful groomsman gift.</p>
+                            <div class="swatches-row">
+                                <span class="swatch-label">Colour</span>
+                                <span class="swatch selected" style="background:#2c2c2c;" title="Black"></span>
+                                <span class="swatch" style="background:#1a2a4a;" title="Navy"></span>
+                            </div>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">From £5.00</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20Groomsman%20Socks" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>Personalised Boxers</h3>
+                            <p class="product-card-desc">A laugh-out-loud gift for the groom or groomsmen.</p>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">£7.50</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20Personalised%20Boxers" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>Scrunchies</h3>
+                            <p class="product-card-desc">Personalised scrunchies — a sweet bridesmaid or flower girl gift.</p>
+                            <div class="swatches-row">
+                                <span class="swatch-label">Colour</span>
+                                <span class="swatch selected" style="background:#f5c6d0;" title="Pink"></span>
+                                <span class="swatch" style="background:#c8d8c8;" title="Sage"></span>
+                                <span class="swatch" style="background:#d4b8c7;" title="Lilac"></span>
+                                <span class="swatch" style="background:#fff;" title="White"></span>
+                            </div>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">£3.50</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20Scrunchies" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>Personalised Handkerchief</h3>
+                            <p class="product-card-desc">A thoughtful keepsake handkerchief, personalised with a name or message.</p>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">From £7.00</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20a%20Personalised%20Handkerchief" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>Earrings & Clips</h3>
+                            <p class="product-card-desc">Pretty personalised hair clips and earrings for bridesmaids and flower girls.</p>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">£3.50</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20Earrings%20and%20Clips" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>Fans</h3>
+                            <p class="product-card-desc">Personalised hand fans — great for summer weddings and outdoor events.</p>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">£3.00</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20Fans" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>Memorial Cloth</h3>
+                            <p class="product-card-desc">A loving keepsake to carry someone special with you on your big day.</p>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">From £18.00</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20a%20Memorial%20Cloth" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>Personalised PJs</h3>
+                            <p class="product-card-desc">Matching personalised pyjamas for the bridal party — perfect for getting-ready photos.</p>
+                            <div class="swatches-row">
+                                <span class="swatch-label">Colour</span>
+                                <span class="swatch selected" style="background:#f5c6d0;" title="Pink"></span>
+                                <span class="swatch" style="background:#c8d8c8;" title="Sage"></span>
+                                <span class="swatch" style="background:#2c2c2c;" title="Black"></span>
+                            </div>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">From £22.00</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20Personalised%20PJs" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>Adult Apron</h3>
+                            <p class="product-card-desc">Personalised apron — a fun gift for the home cook in your life.</p>
+                            <div class="swatches-row">
+                                <span class="swatch-label">Colour</span>
+                                <span class="swatch selected" style="background:#f5c6d0;" title="Pink"></span>
+                                <span class="swatch" style="background:#2c2c2c;" title="Black"></span>
+                                <span class="swatch" style="background:#f0e6d3;" title="Natural"></span>
+                            </div>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">£11.00</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20an%20Adult%20Apron" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>Child Apron</h3>
+                            <p class="product-card-desc">A sweet personalised apron for little helpers in the kitchen.</p>
+                            <div class="swatches-row">
+                                <span class="swatch-label">Colour</span>
+                                <span class="swatch selected" style="background:#f5c6d0;" title="Pink"></span>
+                                <span class="swatch" style="background:#b0d4f0;" title="Blue"></span>
+                                <span class="swatch" style="background:#f0e6d3;" title="Natural"></span>
+                            </div>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">£9.00</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20a%20Child%20Apron" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ACCESSORIES -->
+            <section class="shop-category" id="accessories" data-category="accessories">
+                <div class="category-header">
+                    <h2>Accessories</h2>
+                    <div class="category-header-line"></div>
+                    <span class="category-count">16 items</span>
+                </div>
+                <div class="products-grid">
+
+                    <div class="product-card">
+                        <div class="product-card-img">
+                            <img src="images/slideshow/productcard/Flower girl.jpg" alt="Flower Girl Basket">
+                            <span class="card-badge badge-bestseller">Bestseller</span>
+                            <button class="heart-btn" aria-label="Save to wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+                        </div>
+                        <div class="product-card-body">
+                            <h3>Flower Girl Basket</h3>
+                            <p class="product-card-desc">Personalised wicker baskets for your flower girl — with or without flowers.</p>
+                            <div class="swatches-row">
+                                <span class="swatch-label">Ribbon</span>
+                                <span class="swatch selected" style="background:#f5c6d0;" title="Pink"></span>
+                                <span class="swatch" style="background:#fff;" title="White"></span>
+                                <span class="swatch" style="background:#c8d8c8;" title="Sage"></span>
+                                <span class="swatch" style="background:#d4b8c7;" title="Lilac"></span>
+                            </div>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">From £15.00</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20a%20Flower%20Girl%20Basket" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>Flower Girl Wand</h3>
+                            <p class="product-card-desc">A magical personalised wand for your little flower girl to carry down the aisle.</p>
+                            <div class="swatches-row">
+                                <span class="swatch-label">Ribbon</span>
+                                <span class="swatch selected" style="background:#f5c6d0;" title="Pink"></span>
+                                <span class="swatch" style="background:#fff;" title="White"></span>
+                                <span class="swatch" style="background:#d4b8c7;" title="Lilac"></span>
+                            </div>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">£12.00</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20a%20Flower%20Girl%20Wand" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>Pick a Seat Sign</h3>
+                            <p class="product-card-desc">"Pick a seat, not a side" — a charming personalised wedding sign.</p>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">£21.00</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20a%20Pick%20a%20Seat%20Sign" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>Claw Clip with Ribbon</h3>
+                            <p class="product-card-desc">A personalised ribbon claw clip — a sweet finishing touch for bridesmaids.</p>
+                            <div class="swatches-row">
+                                <span class="swatch-label">Colour</span>
+                                <span class="swatch selected" style="background:#f5c6d0;" title="Pink"></span>
+                                <span class="swatch" style="background:#c8d8c8;" title="Sage"></span>
+                                <span class="swatch" style="background:#fff;" title="White"></span>
+                            </div>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">£4.50</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20Claw%20Clips%20with%20Ribbon" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>Personalised Hangers</h3>
+                            <p class="product-card-desc">Wooden hangers personalised with a name or role — a classic bridal keepsake.</p>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">£5.50</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20Personalised%20Hangers" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>Hanger Tags</h3>
+                            <p class="product-card-desc">Personalised tags to hang on wedding dress hangers — a lovely keepsake detail.</p>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">£5.00</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20Hanger%20Tags" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>Pink Rabbit with Dress</h3>
+                            <p class="product-card-desc">An adorable personalised pink bunny in a dress — a charming flower girl gift.</p>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">£15.00</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20a%20Pink%20Rabbit%20with%20Dress" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>Grey Rabbit</h3>
+                            <p class="product-card-desc">A soft personalised grey rabbit — a precious keepsake gift for little ones.</p>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">£20.00</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20a%20Grey%20Rabbit" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>Teddy Bear with T-Shirt</h3>
+                            <p class="product-card-desc">A cuddly personalised teddy with a custom printed t-shirt — a wonderful keepsake.</p>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">£17.00</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20a%20Teddy%20Bear%20with%20T-Shirt" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>Noughts & Crosses</h3>
+                            <p class="product-card-desc">A personalised wooden noughts and crosses set — a fun table activity at the reception.</p>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">£4.50</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20Noughts%20and%20Crosses" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>Wooden Harmonica</h3>
+                            <p class="product-card-desc">A personalised wooden harmonica — a unique and memorable wedding favour.</p>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">£5.00</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20a%20Wooden%20Harmonica" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>Tambourine</h3>
+                            <p class="product-card-desc">A personalised tambourine — great for reception entertainment or as a keepsake.</p>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">£8.50</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20a%20Tambourine" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>Beer Mat</h3>
+                            <p class="product-card-desc">Personalised beer mats — a brilliant keepsake favour for wedding guests.</p>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">From £15.00</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20Beer%20Mats" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>Paddles</h3>
+                            <p class="product-card-desc">Personalised wooden paddles — perfect for bride/groom games at the reception.</p>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">£18.00</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20Paddles" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- DRINKWARE -->
+            <section class="shop-category" id="drinkware" data-category="drinkware">
+                <div class="category-header">
+                    <h2>Drinkware</h2>
+                    <div class="category-header-line"></div>
+                    <span class="category-count">15 items</span>
+                </div>
+                <div class="products-grid">
+
+                    <div class="product-card">
+                        <div class="product-card-img">
+                            <img src="images/slideshow/productcard/champflutes.jpg" alt="Champagne Flutes">
+                            <span class="card-badge badge-popular">Popular</span>
+                            <button class="heart-btn" aria-label="Save to wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+                        </div>
+                        <div class="product-card-body">
+                            <h3>Champagne Flutes</h3>
+                            <p class="product-card-desc">Personalised champagne flutes for the bride and groom — perfect for the toast.</p>
+                            <div class="swatches-row">
+                                <span class="swatch-label">Style</span>
+                                <span class="swatch selected" style="background:#f8f4f0;" title="Clear"></span>
+                                <span class="swatch" style="background:#2c2c2c;" title="Black"></span>
+                                <span class="swatch" style="background:#fff;" title="White"></span>
+                            </div>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">From £5.50</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20Champagne%20Flutes" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img">
+                            <img src="images/slideshow/productcard/glasses.jpg" alt="Wine Glass">
+                            <button class="heart-btn" aria-label="Save to wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+                        </div>
+                        <div class="product-card-body">
+                            <h3>Wine Glass</h3>
+                            <p class="product-card-desc">Personalised wine glasses — a lovely gift for the bridal party or wedding guests.</p>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">£5.50</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20Wine%20Glasses" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>Pint Glasses</h3>
+                            <p class="product-card-desc">Personalised standard pint glasses — a great groomsman or wedding favour gift.</p>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">£6.50</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20Pint%20Glasses" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>Shot Glasses</h3>
+                            <p class="product-card-desc">Personalised shot glasses — a fun addition to any wedding or hen do.</p>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">£4.00</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20Shot%20Glasses" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>Hip Flask</h3>
+                            <p class="product-card-desc">Personalised hip flasks — a classic and stylish gift for the groom or best man.</p>
+                            <div class="swatches-row">
+                                <span class="swatch-label">Style</span>
+                                <span class="swatch selected" style="background:#c8c8c8;" title="Single"></span>
+                                <span class="swatch" style="background:#8b6914;" title="Leather"></span>
+                            </div>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">From £6.00</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20a%20Hip%20Flask" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>Boxed Hip Flask Set</h3>
+                            <p class="product-card-desc">A personalised hip flask presented in a gift box — ready to give straight away.</p>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">£15.00</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20a%20Boxed%20Hip%20Flask%20Set" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>Bottle Openers</h3>
+                            <p class="product-card-desc">Personalised card-style bottle openers in wood or metal — a brilliant wedding favour.</p>
+                            <div class="swatches-row">
+                                <span class="swatch-label">Material</span>
+                                <span class="swatch selected" style="background:#c8a96e;" title="Wood"></span>
+                                <span class="swatch" style="background:#c8c8c8;" title="Metal"></span>
+                            </div>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">From £4.50</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20Bottle%20Openers" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>Mixer Glass Tumbler</h3>
+                            <p class="product-card-desc">Personalised mixer tumblers — great for cocktail lovers in the wedding party.</p>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">£5.50</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20Mixer%20Glass%20Tumblers" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>Clear Plastic Tumblers</h3>
+                            <p class="product-card-desc">Personalised clear plastic tumblers — ideal for outdoor receptions and garden parties.</p>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">£6.00</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20Clear%20Plastic%20Tumblers" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>Beer Steins</h3>
+                            <p class="product-card-desc">Personalised beer steins — a hearty and memorable gift for the men in the party.</p>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">£10.00</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20Beer%20Steins" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>Frosted Cups</h3>
+                            <p class="product-card-desc">Personalised frosted cups — a stylish and versatile drinkware option.</p>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">£5.00</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20Frosted%20Cups" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- GIFTING & PACKAGING -->
+            <section class="shop-category" id="gifting" data-category="gifting">
+                <div class="category-header">
+                    <h2>Gifting & Packaging</h2>
+                    <div class="category-header-line"></div>
+                    <span class="category-count">5 items</span>
+                </div>
+                <div class="products-grid">
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>Gift Bags</h3>
+                            <p class="product-card-desc">Personalised gift bags in black, white or clear — perfect for presenting any gift beautifully.</p>
+                            <div class="swatches-row">
+                                <span class="swatch-label">Colour</span>
+                                <span class="swatch selected" style="background:#2c2c2c;" title="Black"></span>
+                                <span class="swatch" style="background:#fff;" title="White"></span>
+                                <span class="swatch" style="background:#e8f4f8;border:1px solid #ddd;" title="Clear"></span>
+                            </div>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">£5.00</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20Gift%20Bags" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>Large Brown & White Bags</h3>
+                            <p class="product-card-desc">Large personalised brown or white kraft bags — great for bigger gift bundles.</p>
+                            <div class="swatches-row">
+                                <span class="swatch-label">Colour</span>
+                                <span class="swatch selected" style="background:#c8a96e;" title="Brown"></span>
+                                <span class="swatch" style="background:#fff;" title="White"></span>
+                            </div>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">£7.00</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20Large%20Bags" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img">
+                            <img src="images/slideshow/productcard/bridesmaidbox.jpg" alt="Magnetic Box">
+                            <span class="card-badge badge-bestseller">Bestseller</span>
+                            <button class="heart-btn" aria-label="Save to wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+                        </div>
+                        <div class="product-card-body">
+                            <h3>Magnetic Gift Box</h3>
+                            <p class="product-card-desc">Luxury magnetic gift boxes, personalised and ready to fill — makes gifting effortless.</p>
+                            <div class="swatches-row">
+                                <span class="swatch-label">Colour</span>
+                                <span class="swatch selected" style="background:#2c2c2c;" title="Black"></span>
+                                <span class="swatch" style="background:#fff;" title="White"></span>
+                                <span class="swatch" style="background:#f5c6d0;" title="Pink"></span>
+                                <span class="swatch" style="background:#c8d8c8;" title="Sage"></span>
+                            </div>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">From £12.00</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20a%20Magnetic%20Gift%20Box" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>DIY Fold Out Box</h3>
+                            <p class="product-card-desc">Personalised fold-out gift boxes — an affordable and stylish packaging option.</p>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">From £6.00</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20DIY%20Fold%20Out%20Boxes" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- BRIDAL & OCCASIONS -->
+            <section class="shop-category" id="bridal" data-category="bridal">
+                <div class="category-header">
+                    <h2>Bridal & Special Occasions</h2>
+                    <div class="category-header-line"></div>
+                    <span class="category-count">3 items</span>
+                </div>
+                <div class="products-grid">
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>Will You Be My Bridesmaid Necklace</h3>
+                            <p class="product-card-desc">A beautiful way to pop the question — a personalised necklace your bridesmaid will treasure.</p>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">£8.00</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20a%20Bridesmaid%20Necklace" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>Will You Be My Cards</h3>
+                            <p class="product-card-desc">Personalised cards to ask your bridesmaids, flower girls or page boys — a moment they'll never forget.</p>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">£1.50</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20Will%20You%20Be%20My%20Cards" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img no-img"></div>
+                        <div class="product-card-body">
+                            <h3>Flower Girl Wand</h3>
+                            <p class="product-card-desc">A magical personalised wand for your little flower girl — a keepsake she'll love.</p>
+                            <div class="swatches-row">
+                                <span class="swatch-label">Ribbon</span>
+                                <span class="swatch selected" style="background:#f5c6d0;" title="Pink"></span>
+                                <span class="swatch" style="background:#fff;" title="White"></span>
+                                <span class="swatch" style="background:#d4b8c7;" title="Lilac"></span>
+                            </div>
+                            <div class="product-card-footer">
+                                <div><span class="product-price-label">Price</span><span class="product-price">£12.00</span></div>
+                                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20order%20a%20Flower%20Girl%20Wand" class="btn-order" target="_blank">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- ORDER BANNER -->
+    <section id="order" class="shop-order-banner">
+        <div class="container">
+            <h2>Can't find what you're looking for?</h2>
+            <p>Kelly loves a custom order — message her directly on WhatsApp to discuss your ideas.</p>
+            <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%20have%20a%20question%20about%20my%20order"
+               class="btn-primary" target="_blank">Message Kelly on WhatsApp</a>
         </div>
     </section>
 
     <!-- FLOATING BUTTON -->
-    <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20place%20an%20order" 
-       class="floating-order-btn" target="_blank">
-        Place an Order
-    </a>
+    <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20place%20an%20order"
+       class="floating-order-btn" target="_blank">Place an Order</a>
 
     <!-- FOOTER -->
     <footer class="footer">
@@ -109,7 +848,6 @@
                     <a href="#">Shipping & Returns</a>
                 </div>
             </div>
-
             <div class="footer-bottom">
                 <p>Handcrafted with love in the UK</p>
                 <p>&copy; 2026 Made by Kelly. All rights reserved.</p>
@@ -118,5 +856,46 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        // Category filter tabs
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const categories = document.querySelectorAll('.shop-category');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.dataset.filter;
+
+                if (filter === 'all') {
+                    categories.forEach(cat => cat.style.display = '');
+                } else {
+                    categories.forEach(cat => {
+                        cat.style.display = cat.dataset.category === filter ? '' : 'none';
+                    });
+                    // Scroll to visible category
+                    const target = document.getElementById(filter);
+                    if (target) {
+                        setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+                    }
+                }
+            });
+        });
+
+        // Swatch selection
+        document.querySelectorAll('.swatch').forEach(swatch => {
+            swatch.addEventListener('click', () => {
+                const row = swatch.closest('.swatches-row');
+                row.querySelectorAll('.swatch').forEach(s => s.classList.remove('selected'));
+                swatch.classList.add('selected');
+            });
+        });
+
+        // Heart toggle
+        document.querySelectorAll('.heart-btn').forEach(btn => {
+            btn.addEventListener('click', () => btn.classList.toggle('liked'));
+        });
+    </script>
 </body>
 </html>

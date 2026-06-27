@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Price List | Made by Kelly</title>
-    
-    <!-- Fonts -->
+    <meta name="description" content="Full price list for all personalised handcrafted gifts by Kelly. Clothing, accessories, drinkware, gifting and bridal.">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- CSS -->
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/layout.css">
@@ -24,154 +21,239 @@
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="shop.html">Shop</a></li>
-                    <li><a href="bridesmaid-gifts.html">Bridesmaid Gifts</a></li>
+                    <li><a href="shop.html#bridesmaid">Bridesmaid Gifts</a></li>
                     <li><a href="gift-sets.html">Gift Sets</a></li>
                 </ul>
             </nav>
-
-            <a href="index.html" class="logo">
-                Made by <span>Kelly</span>
-            </a>
-
-             <nav class="nav-right">
+            <a href="index.html" class="logo">Made by <span>Kelly</span></a>
+            <nav class="nav-right">
                 <ul>
-                    <li><a href="price-list.html">Price List</a></li>
+                    <li><a href="price-list.html" class="active">Price List</a></li>
                     <li><a href="customize.html">Customize</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="#order">Contact</a></li>
                 </ul>
             </nav>
-
             <button class="burger-menu" id="burger" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </button>
         </div>
-
         <div class="mobile-menu" id="mobileMenu">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="shop.html">Shop</a></li>
-                <li><a href="bridesmaid-gifts.html">Bridesmaid Gifts</a></li>
+                <li><a href="shop.html#bridesmaid">Bridesmaid Gifts</a></li>
                 <li><a href="gift-sets.html">Gift Sets</a></li>
                 <li><a href="price-list.html">Price List</a></li>
                 <li><a href="customize.html">Customize</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#order">Contact</a></li>
             </ul>
         </div>
     </header>
 
-    <!-- PRICE LIST HERO -->
+    <!-- HERO -->
     <section class="price-hero">
         <div class="container">
             <h1>Price List</h1>
-            <p>All prices include basic personalisation • Updated April 2026</p>
+            <p>All prices include basic personalisation &nbsp;·&nbsp; Updated April 2026</p>
         </div>
     </section>
 
-    <!-- PRICE LIST CONTENT -->
-    <section class="price-list">
+    <!-- FILTER TABS -->
+    <nav class="price-filters" aria-label="Price categories">
+        <div class="price-filters-inner">
+            <button class="price-filter-btn active" data-filter="all">All Items</button>
+            <button class="price-filter-btn" data-filter="clothing">Clothing</button>
+            <button class="price-filter-btn" data-filter="accessories">Accessories</button>
+            <button class="price-filter-btn" data-filter="drinkware">Drinkware</button>
+            <button class="price-filter-btn" data-filter="gifting">Gifting & Packaging</button>
+            <button class="price-filter-btn" data-filter="bridal">Bridal & Occasions</button>
+        </div>
+    </nav>
+
+    <!-- BODY -->
+    <main class="price-body">
         <div class="container">
 
-            <div class="price-category">
-                <h2>Clothing</h2>
-                <div class="price-items">
-                    <div class="price-row"><span>Custom Robe</span><span class="price">£20.00</span></div>
-                    <div class="price-row"><span>Lace Edge Robe</span><span class="price">£18.00</span></div>
-                    <div class="price-row"><span>Personalised Slippers</span><span class="price">£9.00</span></div>
-                    <div class="price-row"><span>Black Groomsman Socks</span><span class="price">£5.00</span></div>
-                    <div class="price-row"><span>Navy Socks</span><span class="price">£5.50</span></div>
-                    <div class="price-row"><span>Boxers</span><span class="price">£7.50</span></div>
-                    <div class="price-row"><span>Scrunchies</span><span class="price">£3.50</span></div>
-                    <div class="price-row"><span>Handkerchief</span><span class="price"> From £7.00</span></div>
-                    <div class="price-row"><span>Earings & Clips</span><span class="price">£3.50</span></div>
-                    <div class="price-row"><span>Fans</span><span class="price">£3.00</span></div>
-                    <div class="price-row"><span>Memorial Cloths Start From</span><span class="price">£18.00</span></div>
-                    <div class="price-row"><span>PJs Start From</span><span class="price">£22.00</span></div>
-                    <div class="price-row"><span>Robes Start From</span><span class="price">£18.00</span></div>
-                     <div class="price-row"><span>Adult Aprons </span><span class="price">£11.00</span></div>
-                    <div class="price-row"><span>Child Aprons </span><span class="price">£9.00</span></div>
-                    
-
+            <!-- CLOTHING -->
+            <section class="price-category" id="clothing" data-category="clothing">
+                <div class="price-category-header">
+                    <h2>Clothing</h2>
+                    <div class="price-category-line"></div>
+                    <span class="price-category-count">15 items</span>
                 </div>
-            </div>
-
-              <div class="price-category">
-                <h2>Accessories</h2>
-                <div class="price-items">
-                    <div class="price-row"><span>Flower Girl Baskets Without Flowers</span><span class="price">£15.00</span></div>
-                     <div class="price-row"><span>Flower Girl Baskets With Flowers</span><span class="price">£21.00</span></div>
-                     <div class="price-row"><span>Flower Girl Wands</span><span class="price">£12.00</span></div>
-                    <div class="price-row"><span>Pick a Seat Sign</span><span class="price">£21.00</span></div>
-                    <div class="price-row"><span>Claw Clip With Ribbon</span><span class="price">£4.50</span></div>
-                    <div class="price-row"><span>Hangers</span><span class="price">£5.50</span></div>
-                    <div class="price-row"><span>Hanger Tags</span><span class="price">£5.00</span></div>
-                    <div class="price-row"><span>Pink Rabbit with Dress</span><span class="price">£15.00</span></div>
-                    <div class="price-row"><span>Grey Rabbit</span><span class="price">£20.00</span></div>
-                                          <div class="price-row"><span>Pink Rabbit with Dress</span><span class="price">£15.00</span></div>
-                      <div class="price-row"><span>Teddy Bear With T-Shirt</span><span class="price">£17.00</span></div>
-                                            <div class="price-row"><span>Pink Rabbit with Dress</span><span class="price">£15.00</span></div>
-                      <div class="price-row"><span>Naughts & Crosses</span><span class="price">£4.50</span></div>
-                      <div class="price-row"><span>Wooden Harmonica</span><span class="price">£5.00</span></div>
-                      <div class="price-row"><span>Tambourine</span><span class="price">£8.50</span></div>
-                      <div class="price-row"><span>Small Beer Mat</span><span class="price">£15.00</span></div>
-                       <div class="price-row"><span>Large Beer Mat</span><span class="price">£20.00</span></div>
-                      <div class="price-row"><span>Paddles</span><span class="price">£18.00</span></div>
-                     
-                     
-                     
-
+                <div class="price-grid">
+                    <div class="price-card"><span class="price-card-name">Custom Robe</span><span class="price-card-price">£20.00</span></div>
+                    <div class="price-card"><span class="price-card-name">Lace Edge Robe</span><span class="price-card-price">£18.00</span></div>
+                    <div class="price-card"><span class="price-card-name">Robes (standard)</span><span class="price-card-price">From £18.00</span></div>
+                    <div class="price-card"><span class="price-card-name">Personalised PJs</span><span class="price-card-price">From £22.00</span></div>
+                    <div class="price-card"><span class="price-card-name">Personalised Slippers</span><span class="price-card-price">£9.00</span></div>
+                    <div class="price-card"><span class="price-card-name">Black Groomsman Socks</span><span class="price-card-price">£5.00</span></div>
+                    <div class="price-card"><span class="price-card-name">Navy Socks</span><span class="price-card-price">£5.50</span></div>
+                    <div class="price-card"><span class="price-card-name">Boxers</span><span class="price-card-price">£7.50</span></div>
+                    <div class="price-card"><span class="price-card-name">Scrunchies</span><span class="price-card-price">£3.50</span></div>
+                    <div class="price-card"><span class="price-card-name">Handkerchief</span><span class="price-card-price">From £7.00</span></div>
+                    <div class="price-card"><span class="price-card-name">Earrings & Clips</span><span class="price-card-price">£3.50</span></div>
+                    <div class="price-card"><span class="price-card-name">Fans</span><span class="price-card-price">£3.00</span></div>
+                    <div class="price-card"><span class="price-card-name">Memorial Cloths</span><span class="price-card-price">From £18.00</span></div>
+                    <div class="price-card"><span class="price-card-name">Adult Aprons</span><span class="price-card-price">£11.00</span></div>
+                    <div class="price-card"><span class="price-card-name">Child Aprons</span><span class="price-card-price">£9.00</span></div>
                 </div>
-            </div>
+            </section>
 
-            <div class="price-category">
-                <h2>Drinkware</h2>
-                <div class="price-items">
-                    <div class="price-row"><span>Champagne Flutes</span><span class="price">£5.50</span></div>
-                    <div class="price-row"><span>Black Flutes</span><span class="price">£6.50</span></div>
-                     <div class="price-row"><span>White Flutes</span><span class="price">£6.50</span></div>
-                    <div class="price-row"><span>Wine Glass</span><span class="price">£5.50</span></div>
-                    <div class="price-row"><span>Standard Pint Glasses</span><span class="price">£6.50</span></div>
-                    <div class="price-row"><span>Shot Glasses</span><span class="price">£4.00</span></div>
-                     <div class="price-row"><span>Single Hip Flask</span><span class="price">£6.00</span></div>
-                     <div class="price-row"><span>Boxed Hip Flask Set</span><span class="price">£15.00</span></div>
-                     <div class="price-row"><span>Leather Hip Flash</span><span class="price">£7.50</span></div>
-                     <div class="price-row"><span>Wooden Card Bottle Openers</span><span class="price">£5.00</span></div>
-                     <div class="price-row"><span>Metal Card Bottle Openers</span><span class="price">£4.50</span></div>
-                     <div class="price-row"><span>Mixer Glass Tumbler</span><span class="price">£5.50</span></div>
-                      <div class="price-row"><span>Clear Plastic Tumblers</span><span class="price">£6.00</span></div>
-                     <div class="price-row"><span>Beer Steins</span><span class="price">£10.00</span></div>
-                      <div class="price-row"><span>Frosted Cups</span><span class="price">£5.00</span></div>
-
+            <!-- ACCESSORIES -->
+            <section class="price-category" id="accessories" data-category="accessories">
+                <div class="price-category-header">
+                    <h2>Accessories</h2>
+                    <div class="price-category-line"></div>
+                    <span class="price-category-count">14 items</span>
                 </div>
-            </div>
-
-            <div class="price-category">
-                <h2>Gifting & Packaging</h2>
-                <div class="price-items">
-                    <div class="price-row"><span>Black, White Or Clear Gift Bags</span><span class="price">£5.00</span></div>
-                    <div class="price-row"><span>Large Brown & White Bags</span><span class="price">£7.00</span></div>
-                    <div class="price-row"><span>Clear Bags</span><span class="price">£5.00</span></div>
-                    <div class="price-row"><span>Magnetic Boxes Start From</span><span class="price">£12.00</span></div>
-                    <div class="price-row"><span>DIY Fold Out Boxes Start From</span><span class="price">£6.00</span></div>
+                <div class="price-grid">
+                    <div class="price-card"><span class="price-card-name">Flower Girl Basket (without flowers)</span><span class="price-card-price">£15.00</span></div>
+                    <div class="price-card"><span class="price-card-name">Flower Girl Basket (with flowers)</span><span class="price-card-price">£21.00</span></div>
+                    <div class="price-card"><span class="price-card-name">Flower Girl Wands</span><span class="price-card-price">£12.00</span></div>
+                    <div class="price-card"><span class="price-card-name">Pick a Seat Sign</span><span class="price-card-price">£21.00</span></div>
+                    <div class="price-card"><span class="price-card-name">Claw Clip with Ribbon</span><span class="price-card-price">£4.50</span></div>
+                    <div class="price-card"><span class="price-card-name">Hangers</span><span class="price-card-price">£5.50</span></div>
+                    <div class="price-card"><span class="price-card-name">Hanger Tags</span><span class="price-card-price">£5.00</span></div>
+                    <div class="price-card"><span class="price-card-name">Pink Rabbit with Dress</span><span class="price-card-price">£15.00</span></div>
+                    <div class="price-card"><span class="price-card-name">Grey Rabbit</span><span class="price-card-price">£20.00</span></div>
+                    <div class="price-card"><span class="price-card-name">Teddy Bear with T-Shirt</span><span class="price-card-price">£17.00</span></div>
+                    <div class="price-card"><span class="price-card-name">Noughts & Crosses</span><span class="price-card-price">£4.50</span></div>
+                    <div class="price-card"><span class="price-card-name">Wooden Harmonica</span><span class="price-card-price">£5.00</span></div>
+                    <div class="price-card"><span class="price-card-name">Tambourine</span><span class="price-card-price">£8.50</span></div>
+                    <div class="price-card"><span class="price-card-name">Beer Mat (small)</span><span class="price-card-price">£15.00</span></div>
+                    <div class="price-card"><span class="price-card-name">Beer Mat (large)</span><span class="price-card-price">£20.00</span></div>
+                    <div class="price-card"><span class="price-card-name">Paddles</span><span class="price-card-price">£18.00</span></div>
                 </div>
-            </div>
+            </section>
 
-            <div class="price-category">
-                <h2>Bridal & Special Occasions</h2>
-                <div class="price-items">
-                    <div class="price-row"><span>Will You Be My Bridesmaid Necklace</span><span class="price">£8.00</span></div>
-                 
-                    <div class="price-row"><span>Flower Girl Wand</span><span class="price">£12.00</span></div>
-                    <div class="price-row"><span>Will You Be My Cards</span><span class="price">£1.50</span></div>
+            <!-- DRINKWARE -->
+            <section class="price-category" id="drinkware" data-category="drinkware">
+                <div class="price-category-header">
+                    <h2>Drinkware</h2>
+                    <div class="price-category-line"></div>
+                    <span class="price-category-count">15 items</span>
                 </div>
-            </div>
+                <div class="price-grid">
+                    <div class="price-card"><span class="price-card-name">Champagne Flutes</span><span class="price-card-price">£5.50</span></div>
+                    <div class="price-card"><span class="price-card-name">Black Flutes</span><span class="price-card-price">£6.50</span></div>
+                    <div class="price-card"><span class="price-card-name">White Flutes</span><span class="price-card-price">£6.50</span></div>
+                    <div class="price-card"><span class="price-card-name">Wine Glass</span><span class="price-card-price">£5.50</span></div>
+                    <div class="price-card"><span class="price-card-name">Standard Pint Glasses</span><span class="price-card-price">£6.50</span></div>
+                    <div class="price-card"><span class="price-card-name">Shot Glasses</span><span class="price-card-price">£4.00</span></div>
+                    <div class="price-card"><span class="price-card-name">Single Hip Flask</span><span class="price-card-price">£6.00</span></div>
+                    <div class="price-card"><span class="price-card-name">Boxed Hip Flask Set</span><span class="price-card-price">£15.00</span></div>
+                    <div class="price-card"><span class="price-card-name">Leather Hip Flask</span><span class="price-card-price">£7.50</span></div>
+                    <div class="price-card"><span class="price-card-name">Wooden Card Bottle Opener</span><span class="price-card-price">£5.00</span></div>
+                    <div class="price-card"><span class="price-card-name">Metal Card Bottle Opener</span><span class="price-card-price">£4.50</span></div>
+                    <div class="price-card"><span class="price-card-name">Mixer Glass Tumbler</span><span class="price-card-price">£5.50</span></div>
+                    <div class="price-card"><span class="price-card-name">Clear Plastic Tumblers</span><span class="price-card-price">£6.00</span></div>
+                    <div class="price-card"><span class="price-card-name">Beer Steins</span><span class="price-card-price">£10.00</span></div>
+                    <div class="price-card"><span class="price-card-name">Frosted Cups</span><span class="price-card-price">£5.00</span></div>
+                </div>
+            </section>
 
+            <!-- GIFTING & PACKAGING -->
+            <section class="price-category" id="gifting" data-category="gifting">
+                <div class="price-category-header">
+                    <h2>Gifting & Packaging</h2>
+                    <div class="price-category-line"></div>
+                    <span class="price-category-count">5 items</span>
+                </div>
+                <div class="price-grid">
+                    <div class="price-card"><span class="price-card-name">Black, White or Clear Gift Bags</span><span class="price-card-price">£5.00</span></div>
+                    <div class="price-card"><span class="price-card-name">Large Brown & White Bags</span><span class="price-card-price">£7.00</span></div>
+                    <div class="price-card"><span class="price-card-name">Clear Bags</span><span class="price-card-price">£5.00</span></div>
+                    <div class="price-card"><span class="price-card-name">Magnetic Boxes</span><span class="price-card-price">From £12.00</span></div>
+                    <div class="price-card"><span class="price-card-name">DIY Fold Out Boxes</span><span class="price-card-price">From £6.00</span></div>
+                </div>
+            </section>
+
+            <!-- BRIDAL & OCCASIONS -->
+            <section class="price-category" id="bridal" data-category="bridal">
+                <div class="price-category-header">
+                    <h2>Bridal & Special Occasions</h2>
+                    <div class="price-category-line"></div>
+                    <span class="price-category-count">3 items</span>
+                </div>
+                <div class="price-grid">
+                    <div class="price-card"><span class="price-card-name">Will You Be My Bridesmaid Necklace</span><span class="price-card-price">£8.00</span></div>
+                    <div class="price-card"><span class="price-card-name">Flower Girl Wand</span><span class="price-card-price">£12.00</span></div>
+                    <div class="price-card"><span class="price-card-name">Will You Be My Cards</span><span class="price-card-price">£1.50</span></div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- ORDER BANNER -->
+    <section id="order" class="price-order-banner">
+        <div class="container">
+            <h2>Not sure what you need?</h2>
+            <p>Message Kelly directly and she'll help you put together the perfect personalised gift within your budget.</p>
+            <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20discuss%20an%20order"
+               class="btn-primary" target="_blank">Message Kelly on WhatsApp</a>
         </div>
     </section>
 
+    <!-- FLOATING BUTTON -->
+    <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20place%20an%20order"
+       class="floating-order-btn" target="_blank">Place an Order</a>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Shop</h4>
+                    <a href="shop.html">All Products</a>
+                    <a href="shop.html#bridesmaid">Bridesmaid Gifts</a>
+                    <a href="gift-sets.html">Gift Sets</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Information</h4>
+                    <a href="price-list.html">Price List</a>
+                    <a href="customize.html">Customize</a>
+                    <a href="about.html">About</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <a href="terms-conditions.html">Terms & Conditions</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Shipping & Returns</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Handcrafted with love in the UK</p>
+                <p>&copy; 2026 Made by Kelly. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
     <script src="js/main.js"></script>
+    <script>
+        // Category filter tabs
+        const filterBtns = document.querySelectorAll('.price-filter-btn');
+        const categories = document.querySelectorAll('.price-category');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                if (filter === 'all') {
+                    categories.forEach(c => c.style.display = '');
+                } else {
+                    categories.forEach(c => {
+                        c.style.display = c.dataset.category === filter ? '' : 'none';
+                    });
+                    const target = document.getElementById(filter);
+                    if (target) setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+                }
+            });
+        });
+    </script>
 </body>
 </html>

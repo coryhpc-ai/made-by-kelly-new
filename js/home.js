@@ -1,37 +1,52 @@
 // js/home.js
 document.addEventListener('DOMContentLoaded', () => {
 
-    // HERO SLIDESHOW
+    // ── HERO SLIDESHOW ──
     const slides = document.querySelectorAll('.hero-slide');
-    const dots = document.querySelectorAll('.hero-dot');
-    let currentSlide = 0;
+    const dots   = document.querySelectorAll('.hero-dot');
+    let current  = 0;
+    let timer;
 
-    function showSlide(n) {
-        slides.forEach(slide => slide.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
-        slides[n].classList.add('active');
-        dots[n].classList.add('active');
+    function goToSlide(n) {
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        current = (n + slides.length) % slides.length;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+    }
+
+    function startAuto() {
+        clearInterval(timer);
+        timer = setInterval(() => goToSlide(current + 1), 6000);
     }
 
     if (slides.length > 0) {
-        setInterval(() => {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }, 6000);
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                goToSlide(parseInt(dot.dataset.slide));
+                startAuto();
+            });
+        });
+        startAuto();
     }
 
-    // TESTIMONIALS - SINGLE CARD FADE
-    const testimonialCards = document.querySelectorAll('.testimonial-card');
-    let currentTestimonial = 0;
+    // ── SCROLL REVEAL ──
+    const revealEls = document.querySelectorAll('.step, .seller-card, .about-visual-card, .about-strip-text');
+    const observer  = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
 
-    function fadeNextTestimonial() {
-        testimonialCards.forEach(card => card.classList.remove('active'));
-        currentTestimonial = (currentTestimonial + 1) % testimonialCards.length;
-        testimonialCards[currentTestimonial].classList.add('active');
-    }
+    revealEls.forEach((el, i) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(28px)';
+        el.style.transition = `opacity 0.6s ease ${i * 0.08}s, transform 0.6s ease ${i * 0.08}s`;
+        observer.observe(el);
+    });
 
-    if (testimonialCards.length > 0) {
-        testimonialCards[0].classList.add('active'); // Show first one
-        setInterval(fadeNextTestimonial, 5000);     // Change every 5 seconds
-    }
 });

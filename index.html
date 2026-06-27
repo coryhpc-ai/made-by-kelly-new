@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Made by Kelly | Handcrafted Gifts</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    
+    <title>Made by Kelly | Handcrafted Personalised Gifts</title>
+    <meta name="description" content="Handcrafted personalised gifts for weddings, bridesmaids and special occasions. Made with love in the UK by Kelly.">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages/home.css">
 </head>
 <body>
 
@@ -19,38 +19,34 @@
         <div class="header-content container">
             <nav class="nav-left">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html" class="active">Home</a></li>
                     <li><a href="shop.html">Shop</a></li>
-                    <li><a href="shop.html">Bridesmaid Gifts</a></li>
-                    <li><a href="gift-sets.html">Gift Sets</a></li>
+                    <li><a href="shop.html#accessories">Bridesmaid Gifts</a></li>
+                    <li><a href="shop.html#gifting">Gift Sets</a></li>
                 </ul>
             </nav>
-
             <a href="index.html" class="logo">Made by <span>Kelly</span></a>
-
             <nav class="nav-right">
                 <ul>
                     <li><a href="price-list.html">Price List</a></li>
-                    <li><a href="shop.html">Customize</a></li>
-                    <li><a href="about.html">About</a></li>
+                    <li><a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20discuss%20a%20custom%20order" target="_blank">Customize</a></li>
+                    <li><a href="#about">About</a></li>
                     <li><a href="#order">Contact</a></li>
                 </ul>
             </nav>
-
             <button class="burger-menu" id="burger" aria-label="Toggle menu">
                 <span></span><span></span><span></span>
             </button>
         </div>
-
         <div class="mobile-menu" id="mobileMenu">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="shop.html">Shop</a></li>
-                <li><a href="shop.html">Bridesmaid Gifts</a></li>
-                <li><a href="gift-sets.html">Gift Sets</a></li>
+                <li><a href="shop.html#accessories">Bridesmaid Gifts</a></li>
+                <li><a href="shop.html#gifting">Gift Sets</a></li>
                 <li><a href="price-list.html">Price List</a></li>
-                <li><a href="customize.html">Customize</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20discuss%20a%20custom%20order" target="_blank">Customize</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#order">Contact</a></li>
             </ul>
         </div>
@@ -63,32 +59,81 @@
             <div class="hero-slide" style="background-image: url('images/slideshow/jeremy-wong-weddings-464ps_nOflw-unsplash.jpg');"></div>
             <div class="hero-slide" style="background-image: url('images/slideshow/photos-by-lanty-O38Id_cyV4M-unsplash.jpg');"></div>
             <div class="hero-slide" style="background-image: url('images/slideshow/shayna-douglas-GV89QxUF4VI-unsplash.jpg');"></div>
-             <div class="hero-slide" style="background-image: url('images/slideshow/al-elmes-ULHxWq8reao-unsplash.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('images/slideshow/al-elmes-ULHxWq8reao-unsplash.jpg');"></div>
         </div>
-
         <div class="hero-overlay">
             <div class="hero-content">
-                <h1>Handcrafted Gifts<br>That Make You Feel Cherished</h1>
-                <p>Beautifully made with love for weddings, special occasions & everyday moments</p>
-                <a href="shop.html" class="btn-primary">Shop the Collection</a>
+                <span class="hero-eyebrow">Handcrafted with love in the UK</span>
+                <h1>Gifts That Make<br><em>Every Moment</em> Special</h1>
+                <p>I create personalised pieces for weddings, bridesmaids &amp; every occasion worth celebrating</p>
+                <div class="hero-btns">
+                    <a href="shop.html" class="btn-primary">Shop the Collection</a>
+                    <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20discuss%20a%20custom%20order" class="btn-ghost" target="_blank">Message Me</a>
+                </div>
             </div>
         </div>
-
         <div class="hero-dots">
-            <div class="hero-dot active" data-slide="0"></div>
-            <div class="hero-dot" data-slide="1"></div>
-            <div class="hero-dot" data-slide="2"></div>
-            <div class="hero-dot" data-slide="3"></div>
+            <button class="hero-dot active" data-slide="0" aria-label="Slide 1"></button>
+            <button class="hero-dot" data-slide="1" aria-label="Slide 2"></button>
+            <button class="hero-dot" data-slide="2" aria-label="Slide 3"></button>
+            <button class="hero-dot" data-slide="3" aria-label="Slide 4"></button>
+            <button class="hero-dot" data-slide="4" aria-label="Slide 5"></button>
         </div>
     </section>
 
-    <!-- WHO WE ARE -->
-    <section class="who-we-are">
+    <!-- TRUST BAR -->
+    <div class="trust-bar">
+        <div class="trust-bar-inner">
+            <div class="trust-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <span>Made with love</span>
+            </div>
+            <div class="trust-divider"></div>
+            <div class="trust-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>Fast turnaround</span>
+            </div>
+            <div class="trust-divider"></div>
+            <div class="trust-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Handcrafted in the UK</span>
+            </div>
+            <div class="trust-divider"></div>
+            <div class="trust-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>100% personalised</span>
+            </div>
+            <div class="trust-divider"></div>
+            <div class="trust-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.39h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6 6l1.58-1.58a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>WhatsApp ordering</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-it-works">
         <div class="container">
-            <div class="who-we-are-content">
-                <h2>Who We Are</h2>
-                <p>We are a small team who handcraft all our pieces in Kelly’s studio. We’ve always been passionate about creating beautiful gifts and we absolutely love all sorts of crafts.</p>
-                <p>We take great pride in bringing every project to life. No project is too small and we’re open to your ideas. Any questions, please feel free to ask x</p>
+            <div class="section-label">Simple as that</div>
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-num">01</div>
+                    <h3>Browse & Choose</h3>
+                    <p>Explore the full range and find something you love — from robes and flutes to flower girl baskets.</p>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step">
+                    <div class="step-num">02</div>
+                    <h3>Message Kelly</h3>
+                    <p>Drop her a WhatsApp with your choices, personalisation details and any special requests.</p>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step">
+                    <div class="step-num">03</div>
+                    <h3>Receive &amp; Cherish</h3>
+                    <p>Your beautifully handcrafted, personalised gift arrives ready to give — perfectly packaged.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -96,101 +141,266 @@
     <!-- TOP SELLERS -->
     <section class="top-sellers">
         <div class="container">
-            <h2>Our Top Sellers</h2>
-            <div class="products-grid">
-                <div class="product-card">
-                    <img src="images/slideshow/productcard/bridesmaidbox.jpg" alt="Bridesmaid Box">
-                    <h3>Personalised Bridesmaid Box</h3>
-                    <p class="price">£12.00</p>
-                    <a href="#" class="btn-primary small">Shop Now</a>
+            <div class="section-label">Our favourites</div>
+            <h2 class="section-title">Top Sellers</h2>
+            <div class="sellers-grid">
+
+                <div class="seller-card">
+                    <div class="seller-card-img">
+                        <img src="images/slideshow/productcard/bridesmaidbox.jpg" alt="Personalised Bridesmaid Box">
+                        <span class="seller-badge">Bestseller</span>
+                    </div>
+                    <div class="seller-card-body">
+                        <h3>Personalised Bridesmaid Box</h3>
+                        <div class="seller-card-footer">
+                            <span class="seller-price">£12.00</span>
+                            <a href="shop.html" class="btn-sm">Shop Now</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="product-card">
-            <img src="images/slideshow/productcard/Flower girl.jpg" alt="Flower Girl">
-                    <h3>Flower Girl Basket</h3>
-                    <p class="price">From 15.00</p>
-                    <a href="#" class="btn-primary small">Shop Now</a>
+
+                <div class="seller-card seller-card--large">
+                    <div class="seller-card-img">
+                        <img src="images/slideshow/productcard/robe back.jpg" alt="Personalised Bridal Robe">
+                        <span class="seller-badge">Popular</span>
+                    </div>
+                    <div class="seller-card-body">
+                        <h3>Personalised Bridal Robe</h3>
+                        <div class="seller-card-footer">
+                            <span class="seller-price">From £18.00</span>
+                            <a href="shop.html" class="btn-sm">Shop Now</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="product-card">
-                    <img src="images/slideshow/productcard/robe back.jpg" alt="Bridal Robe">
-                    <h3>Personalised Bridal Robe</h3>
-                    <p class="price">From £18.00</p>
-                    <a href="#" class="btn-primary small">Shop Now</a>
+
+                <div class="seller-card">
+                    <div class="seller-card-img">
+                        <img src="images/slideshow/productcard/Flower girl.jpg" alt="Flower Girl Basket">
+                    </div>
+                    <div class="seller-card-body">
+                        <h3>Flower Girl Basket</h3>
+                        <div class="seller-card-footer">
+                            <span class="seller-price">From £15.00</span>
+                            <a href="shop.html" class="btn-sm">Shop Now</a>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="seller-card">
+                    <div class="seller-card-img">
+                        <img src="images/slideshow/productcard/champflutes.jpg" alt="Champagne Flutes">
+                    </div>
+                    <div class="seller-card-body">
+                        <h3>Champagne Flutes</h3>
+                        <div class="seller-card-footer">
+                            <span class="seller-price">From £5.50</span>
+                            <a href="shop.html" class="btn-sm">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="sellers-cta">
+                <a href="shop.html" class="btn-primary">View All Products</a>
             </div>
         </div>
     </section>
 
-    <!-- READY TO PLACE AN ORDER (Contact Target) -->
-    <section id="order" class="order-section">
-        <div class="container">
-            <div class="order-content">
-                <h2>Ready to Place an Order?</h2>
-                <p>Message Kelly directly on WhatsApp for custom orders, enquiries, or to discuss your ideas.</p>
-                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%20have%20a%20question%20about%20my%20order"
-                   class="btn-primary order-btn" target="_blank">
-                    Message Kelly on WhatsApp
+    <!-- CATEGORY BROWSE -->
+    <section class="category-browse">
+        <div class="category-grid">
+                <a href="shop.html#clothing" class="category-tile">
+                    <svg viewBox="0 0 24 24"><path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.57a1 1 0 0 0 .99.84H6v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.57a2 2 0 0 0-1.34-2.23z"/></svg>
+                    <h3>Clothing</h3>
+                    <span>Robes, PJs &amp; aprons</span>
+                </a>
+                <a href="shop.html#accessories" class="category-tile">
+                    <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                    <h3>Accessories</h3>
+                    <span>Baskets, hangers &amp; toys</span>
+                </a>
+                <a href="shop.html#drinkware" class="category-tile">
+                    <svg viewBox="0 0 24 24"><path d="M8 2h8l1 7H7L8 2z"/><path d="M7 9c0 5 2 9 5 9s5-4 5-9"/><path d="M12 18v3"/><path d="M9 21h6"/></svg>
+                    <h3>Drinkware</h3>
+                    <span>Flutes, glasses &amp; flasks</span>
+                </a>
+                <a href="shop.html#gifting" class="category-tile">
+                    <svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+                    <h3>Gifting</h3>
+                    <span>Boxes, bags &amp; packaging</span>
+                </a>
+                <a href="shop.html#bridal" class="category-tile">
+                    <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    <h3>Bridal</h3>
+                    <span>Special occasion pieces</span>
                 </a>
             </div>
+    </section>
+    <section class="about-strip" id="about">
+        <div class="container">
+            <div class="about-strip-inner">
+                <div class="about-strip-text">
+                    <div class="section-label">A little about me</div>
+                    <h2>Made by hand.<br>Made with love.</h2>
+                    <p>Hi, I'm Kelly! I handcraft every single piece in my studio, with a little help from my brilliant team. I've always been passionate about creating beautiful, meaningful gifts — and honestly, I absolutely love what I do.</p>
+                    <p>No order is too small and I'm always open to your ideas. Got something in mind? Just message me — I'd love to turn your ideas into something truly special. x</p>
+                    <div class="about-btns">
+                        <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%20have%20a%20question" class="btn-primary" target="_blank">Message Me on WhatsApp</a>
+                        <a href="price-list.html" class="btn-outline">View Price List</a>
+                    </div>
+                </div>
+                <div class="about-strip-visual">
+                    <div class="about-visual-card">
+                        <div class="about-stat"><span class="stat-num">500+</span><span class="stat-label">Happy customers</span></div>
+                    </div>
+                    <div class="about-visual-card about-visual-card--accent">
+                        <div class="about-stat"><span class="stat-num">100%</span><span class="stat-label">Personalised</span></div>
+                    </div>
+                    <div class="about-visual-card">
+                        <div class="about-stat"><span class="stat-num">5★</span><span class="stat-label">Average rating</span></div>
+                    </div>
+                    <div class="about-visual-card about-visual-card--accent">
+                        <div class="about-stat"><span class="stat-num">UK</span><span class="stat-label">Handcrafted</span></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-  <!-- TESTIMONIALS -->
-<section class="testimonials">
-    <div class="container">
-        <h2>Read what our customers say</h2>
-        
-        <div class="testimonials-grid" id="testimonialGrid">
-            <div class="testimonial-card">
-                <div class="quote-icon">“</div>
-                <p>Ordered slippers and sunglasses for my wedding and they were perfect. The slippers were so so comfy!</p>
+    <!-- REVIEWS — Infinite Marquee -->
+    <section class="reviews-section">
+        <div class="container">
+            <div class="section-label">Don't just take our word for it</div>
+            <h2 class="section-title">What Customers Say</h2>
+        </div>
+
+        <div class="reviews-marquee-wrap">
+            <div class="reviews-marquee" id="reviewsMarquee">
+                <!-- Row 1 -->
+                <div class="reviews-track" id="track1">
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p>"Kelly made my wedding gifts beautifully — great packaging and always kept up with communication."</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p>"Ordered slippers and sunglasses for my wedding and they were perfect. The slippers were so so comfy!"</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p>"Good quality hangers and lovely packaging. Kelly was really friendly and responsive. Would definitely recommend."</p>
+                    </div>
+                    <div class="review-card review-card--wide">
+                        <div class="review-stars">★★★★★</div>
+                        <p>"Kelly is so talented and you can see she takes pride and time in her work. I am so happy with the content she provided for me &amp; my bridal party. Lovely lady and super customer service. 💯 recommend 🩷"</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p>"Wow received my beautifully packaged delivery today. Hangers, clips and slippers. Over the moon — can't recommend Kelly enough. 💙"</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p>"Got a great offer on our father of the bride and best man gifts — they all look lovely, great communication and service."</p>
+                    </div>
+                </div>
+                <!-- Duplicate for seamless loop -->
+                <div class="reviews-track" id="track1-clone" aria-hidden="true">
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p>"Kelly made my wedding gifts beautifully — great packaging and always kept up with communication."</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p>"Ordered slippers and sunglasses for my wedding and they were perfect. The slippers were so so comfy!"</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p>"Good quality hangers and lovely packaging. Kelly was really friendly and responsive. Would definitely recommend."</p>
+                    </div>
+                    <div class="review-card review-card--wide">
+                        <div class="review-stars">★★★★★</div>
+                        <p>"Kelly is so talented and you can see she takes pride and time in her work. I am so happy with the content she provided for me &amp; my bridal party. Lovely lady and super customer service. 💯 recommend 🩷"</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p>"Wow received my beautifully packaged delivery today. Hangers, clips and slippers. Over the moon — can't recommend Kelly enough. 💙"</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p>"Got a great offer on our father of the bride and best man gifts — they all look lovely, great communication and service."</p>
+                    </div>
+                </div>
             </div>
-            <div class="testimonial-card">
-                <div class="quote-icon">“</div>
-                <p>Kelly made my wedding gifts beautifully great packaging and always kept up with communication xx</p>
-            </div>
-            <div class="testimonial-card">
-                <div class="quote-icon">“</div>
-                <p>Good quality hangers and lovely packaging. Kelly was really friendly and responsive. Would definitely recommend</p>
-            </div>
-            <div class="testimonial-card">
-                <div class="quote-icon">“</div>
-                <p>Kelly is so talented and you can see she takes pride and time in her work, I am so happy with the content she has provided for me & my bridal party for my upcoming wedding. Lovely lady and super customer service. 💯 recommend 🩷 thank you so much again 🩷</p>
-            </div>
-            <div class="testimonial-card">
-                <div class="quote-icon">“</div>
-                <p>Wow received my beautifully packaged delivery today. Hangers, clips and slippers. Over the moon and can’t recommend Kelly enough. Great communication and great quality products 💙 thanks Kelly xxx</p>
-            </div>
-            <div class="testimonial-card">
-                <div class="quote-icon">“</div>
-                <p>Received our order from Kelly – wow, absolutely love everything! Perfect service from start to finish. All items are just perfect, and you can really tell they’re made with love. Beautifully wrapped too! Thank you so much – 100% recommend! xx 😘</p>
-            </div>
-            <div class="testimonial-card">
-                <div class="quote-icon">“</div>
-                <p>Got a great offer on our father of the bride and best man gifts and they all look lovely, great communication and service</p>
-            </div>
-            <div class="testimonial-card">
-                <div class="quote-icon">“</div>
-                <p>Just received my order, absolutely amazing, exactly what I ordered and great quality. Thank you we will be back for more xx</p>
-            </div>
-            <div class="testimonial-card">
-                <div class="quote-icon">“</div>
-                <p>Just received my order and I can’t thank Kelly enough, absolutely love my items and look forward to gifting them to my bridesmaids this week. Thank you x</p>
-            </div>
-            <div class="testimonial-card">
-                <div class="quote-icon">“</div>
-                <p>Would like to thank Kelly, for our amazing personalised items she has made for my bridal party. They are all stunning, thank you so much 🌸🫶🏻</p>
-            </div>
-            <div class="testimonial-card">
-                <div class="quote-icon">“</div>
-                <p>Just received my order and I am so pleased! The products are beautiful and will make a lovely addition to our big day. Would definitely recommend 🤍</p>
-            </div>
-            <div class="testimonial-card">
-                <div class="quote-icon">“</div>
-                <p>Highly recommended, my item was personalised exactly how I had asked for it and is great quality. Thank you</p>
+
+            <!-- Row 2 — reverse direction -->
+            <div class="reviews-marquee reviews-marquee--reverse" id="reviewsMarquee2">
+                <div class="reviews-track" id="track2">
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p>"Just received my order, absolutely amazing, exactly what I ordered and great quality. Thank you — we will be back! xx"</p>
+                    </div>
+                    <div class="review-card review-card--wide">
+                        <div class="review-stars">★★★★★</div>
+                        <p>"Received our order from Kelly — wow, absolutely love everything! Perfect service from start to finish. All items are just perfect, and you can really tell they're made with love. Beautifully wrapped too! 100% recommend! xx 😘"</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p>"Just received my order and I can't thank Kelly enough — absolutely love my items and look forward to gifting them to my bridesmaids. Thank you x"</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p>"Would like to thank Kelly for our amazing personalised items for my bridal party. They are all stunning, thank you so much 🌸🫶🏻"</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p>"Just received my order and I am so pleased! The products are beautiful and will make a lovely addition to our big day. Would definitely recommend 🤍"</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p>"Highly recommended — my item was personalised exactly how I asked and is great quality. Thank you!"</p>
+                    </div>
+                </div>
+                <div class="reviews-track" id="track2-clone" aria-hidden="true">
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p>"Just received my order, absolutely amazing, exactly what I ordered and great quality. Thank you — we will be back! xx"</p>
+                    </div>
+                    <div class="review-card review-card--wide">
+                        <div class="review-stars">★★★★★</div>
+                        <p>"Received our order from Kelly — wow, absolutely love everything! Perfect service from start to finish. All items are just perfect, and you can really tell they're made with love. Beautifully wrapped too! 100% recommend! xx 😘"</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p>"Just received my order and I can't thank Kelly enough — absolutely love my items and look forward to gifting them to my bridesmaids. Thank you x"</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p>"Would like to thank Kelly for our amazing personalised items for my bridal party. They are all stunning, thank you so much 🌸🫶🏻"</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p>"Just received my order and I am so pleased! The products are beautiful and will make a lovely addition to our big day. Would definitely recommend 🤍"</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p>"Highly recommended — my item was personalised exactly how I asked and is great quality. Thank you!"</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <!-- ORDER CTA -->
+    <section id="order" class="order-section">
+        <div class="container">
+            <div class="order-inner">
+                <h2>Got something in mind?</h2>
+                <p>Message me on WhatsApp and I'll help you choose, personalise, and make it perfect — no idea too big or too small.</p>
+                <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%20have%20a%20question%20about%20my%20order"
+                   class="btn-primary order-btn" target="_blank">Message Me on WhatsApp</a>
+            </div>
+        </div>
+    </section>
 
     <!-- FOOTER -->
     <footer class="footer">
@@ -199,35 +409,32 @@
                 <div class="footer-column">
                     <h4>Shop</h4>
                     <a href="shop.html">All Products</a>
-                    <a href="bridesmaid-gifts.html">Bridesmaid Gifts</a>
-                    <a href="gift-sets.html">Gift Sets</a>
+                    <a href="shop.html#accessories">Bridesmaid Gifts</a>
+                    <a href="shop.html#gifting">Gift Sets</a>
                 </div>
                 <div class="footer-column">
                     <h4>Information</h4>
                     <a href="price-list.html">Price List</a>
-                    <a href="customize.html">Customize</a>
-                    <a href="about.html">About</a>
+                    <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20discuss%20a%20custom%20order" target="_blank">Customize</a>
+                    <a href="#about">About</a>
                 </div>
                 <div class="footer-column">
                     <h4>Legal</h4>
                     <a href="terms-conditions.html">Terms & Conditions</a>
-                    <a href="#">Privacy Policy</a>
+                    <a href="privacy-policy.html">Privacy Policy</a>
                     <a href="#">Shipping & Returns</a>
                 </div>
             </div>
-
             <div class="footer-bottom">
                 <p>Handcrafted with love in the UK</p>
                 <p>&copy; 2026 Made by Kelly. All rights reserved.</p>
             </div>
         </div>
     </footer>
-    <!-- FLOATING PLACE AN ORDER BUTTON -->
-    <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%20have%20a%20question%20about%20my%20order"
-       class="floating-order-btn" target="_blank">
-        Place an Order
-    </a>
-    
+
+    <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20place%20an%20order"
+       class="floating-order-btn" target="_blank">Place an Order</a>
+
     <script src="js/main.js"></script>
     <script src="js/home.js"></script>
 </body>

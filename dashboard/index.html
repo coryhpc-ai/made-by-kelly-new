@@ -4,83 +4,182 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kelly's Dashboard | Made by Kelly</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
 
-    <!-- LOGIN SCREEN -->
+    <!-- LOGIN -->
     <div id="loginScreen" class="login-screen">
         <div class="login-box">
             <div class="login-logo">Made by <span>Kelly</span></div>
             <h1>Dashboard</h1>
-            <p>Enter your password to access order management.</p>
+            <p>Sign in to access order management.</p>
             <div class="form-group">
-                <input type="password" id="loginPassword" placeholder="Password" autofocus>
+                <input type="email" id="loginEmail" placeholder="Email address" autofocus>
             </div>
-            <button class="dash-btn dash-btn--green" id="loginBtn">Login</button>
-            <p class="login-error" id="loginError" style="display:none">Incorrect password. Try again.</p>
+            <div class="form-group">
+                <input type="password" id="loginPassword" placeholder="Password">
+            </div>
+            <button class="dash-btn dash-btn--green" id="loginBtn">Sign In</button>
+            <p class="login-error" id="loginError" style="display:none">Incorrect email or password.</p>
+            <button class="forgot-link" id="forgotBtn">Forgot password?</button>
+            <p class="forgot-sent" id="forgotSent" style="display:none">✅ Reset email sent — check your inbox.</p>
         </div>
     </div>
 
-    <!-- DASHBOARD -->
+    <!-- DASHBOARD APP -->
     <div id="dashboardApp" style="display:none">
 
         <!-- TOPBAR -->
         <header class="dash-header">
             <div class="dash-header-inner">
-                <div class="dash-logo">Made by <span>Kelly</span> — Orders</div>
+                <div class="dash-logo">Made by <span>Kelly</span></div>
+                <nav class="dash-nav">
+                    <button class="dash-nav-btn active" data-page="home">🏠 Home</button>
+                    <button class="dash-nav-btn" data-page="orders">📦 Orders</button>
+                    <button class="dash-nav-btn" data-page="stock">📋 Stock</button>
+                    <button class="dash-nav-btn" data-page="customers">👥 Customers</button>
+                </nav>
                 <div class="dash-header-right">
-                    <span class="dash-live-dot" title="Live updates on"></span>
-                    <button class="dash-btn dash-btn--outline" id="addManualBtn">+ Manual Order</button>
-                    <button class="dash-btn dash-btn--ghost" id="logoutBtn">Logout</button>
+                    <span class="dash-live-dot"></span>
+                    <button class="dash-btn dash-btn--ghost dash-btn--sm" id="logoutBtn">Logout</button>
                 </div>
             </div>
         </header>
 
-        <!-- STATS ROW -->
-        <div class="dash-stats">
-            <div class="stat-card">
-                <span class="stat-val" id="statPending">—</span>
-                <span class="stat-key">Pending</span>
+        <!-- HOME PAGE -->
+        <div id="page-home" class="dash-page">
+
+            <!-- GREETING -->
+            <div class="greeting-section">
+                <div class="greeting-inner">
+                    <div>
+                        <h1 class="greeting-text" id="greetingText"></h1>
+                        <p class="greeting-date" id="greetingDate"></p>
+                    </div>
+                    <div class="greeting-actions">
+                        <button class="dash-btn dash-btn--green" id="addManualBtnHome">+ New Order</button>
+                    </div>
+                </div>
             </div>
-            <div class="stat-card">
-                <span class="stat-val" id="statAccepted">—</span>
-                <span class="stat-key">Accepted</span>
+
+            <!-- QUICK STATS -->
+            <div class="home-stats">
+                <div class="home-stat-card">
+                    <div class="home-stat-icon">⏳</div>
+                    <div class="home-stat-val" id="hStatPending">—</div>
+                    <div class="home-stat-key">Pending</div>
+                </div>
+                <div class="home-stat-card">
+                    <div class="home-stat-icon">🔨</div>
+                    <div class="home-stat-val" id="hStatInProgress">—</div>
+                    <div class="home-stat-key">In Progress</div>
+                </div>
+                <div class="home-stat-card">
+                    <div class="home-stat-icon">📦</div>
+                    <div class="home-stat-val" id="hStatShipping">—</div>
+                    <div class="home-stat-key">To Ship</div>
+                </div>
+                <div class="home-stat-card home-stat-card--green">
+                    <div class="home-stat-icon">💷</div>
+                    <div class="home-stat-val" id="hStatWeekRev">—</div>
+                    <div class="home-stat-key">This Week</div>
+                </div>
+                <div class="home-stat-card home-stat-card--sage">
+                    <div class="home-stat-icon">📅</div>
+                    <div class="home-stat-val" id="hStatMonthRev">—</div>
+                    <div class="home-stat-key">This Month</div>
+                </div>
             </div>
-            <div class="stat-card">
-                <span class="stat-val" id="statInProgress">—</span>
-                <span class="stat-key">In Progress</span>
-            </div>
-            <div class="stat-card">
-                <span class="stat-val" id="statDone">—</span>
-                <span class="stat-key">Complete</span>
-            </div>
-            <div class="stat-card stat-card--green">
-                <span class="stat-val" id="statRevenue">—</span>
-                <span class="stat-key">Total Revenue</span>
+
+            <!-- MAIN GRID -->
+            <div class="home-grid">
+
+                <!-- URGENT ORDERS -->
+                <div class="home-card">
+                    <div class="home-card-header">
+                        <h3>🚨 Needs Attention</h3>
+                        <span class="home-card-count" id="urgentCount"></span>
+                    </div>
+                    <div id="urgentOrders" class="home-card-list"></div>
+                </div>
+
+                <!-- UPCOMING DEADLINES -->
+                <div class="home-card">
+                    <div class="home-card-header">
+                        <h3>🗓️ Upcoming Deadlines</h3>
+                    </div>
+                    <div id="upcomingDeadlines" class="home-card-list"></div>
+                </div>
+
+                <!-- RECENT ORDERS -->
+                <div class="home-card home-card--wide">
+                    <div class="home-card-header">
+                        <h3>🕐 Recent Orders</h3>
+                        <button class="home-card-link" data-page="orders">View all →</button>
+                    </div>
+                    <div id="recentOrders" class="home-card-list"></div>
+                </div>
+
+                <!-- STOCK ALERTS -->
+                <div class="home-card">
+                    <div class="home-card-header">
+                        <h3>⚠️ Low Stock</h3>
+                        <button class="home-card-link" data-page="stock">Manage →</button>
+                    </div>
+                    <div id="lowStockList" class="home-card-list"></div>
+                </div>
+
+                <!-- MOTIVATIONAL -->
+                <div class="home-card home-card--motivation">
+                    <div id="motivationContent"></div>
+                </div>
+
             </div>
         </div>
 
-        <!-- FILTERS + SEARCH -->
-        <div class="dash-toolbar">
-            <div class="dash-filters">
-                <button class="filter-chip active" data-filter="all">All</button>
-                <button class="filter-chip" data-filter="pending">Pending</button>
-                <button class="filter-chip" data-filter="accepted">Accepted</button>
-                <button class="filter-chip" data-filter="in-progress">In Progress</button>
-                <button class="filter-chip" data-filter="complete">Complete</button>
-                <button class="filter-chip" data-filter="rejected">Rejected</button>
+        <!-- ORDERS PAGE -->
+        <div id="page-orders" class="dash-page" style="display:none">
+            <div class="page-toolbar">
+                <div class="dash-filters">
+                    <button class="filter-chip active" data-filter="all">All</button>
+                    <button class="filter-chip" data-filter="pending">Pending</button>
+                    <button class="filter-chip" data-filter="accepted">Accepted</button>
+                    <button class="filter-chip" data-filter="in-progress">In Progress</button>
+                    <button class="filter-chip" data-filter="complete">Complete</button>
+                    <button class="filter-chip" data-filter="rejected">Rejected</button>
+                </div>
+                <div style="display:flex;gap:10px;align-items:center">
+                    <input type="text" id="dashSearch" placeholder="Search orders..." class="dash-search">
+                    <button class="dash-btn dash-btn--outline" id="addManualBtn">+ Manual Order</button>
+                </div>
             </div>
-            <input type="text" id="dashSearch" placeholder="Search by name, ref, product..." class="dash-search">
+            <div class="orders-wrap">
+                <div id="ordersLoading" class="dash-loading">Loading orders...</div>
+                <div id="ordersList"></div>
+            </div>
         </div>
 
-        <!-- ORDERS TABLE -->
-        <div class="orders-wrap">
-            <div id="ordersLoading" class="dash-loading">Loading orders...</div>
-            <div id="ordersList"></div>
+        <!-- STOCK PAGE -->
+        <div id="page-stock" class="dash-page" style="display:none">
+            <div class="page-toolbar">
+                <h2 class="page-title">Stock List</h2>
+                <button class="dash-btn dash-btn--green" id="addStockBtn">+ Add Item</button>
+            </div>
+            <div class="stock-grid" id="stockGrid"></div>
+            <div class="dash-loading" id="stockLoading">Loading stock...</div>
+        </div>
+
+        <!-- CUSTOMERS PAGE -->
+        <div id="page-customers" class="dash-page" style="display:none">
+            <div class="page-toolbar">
+                <h2 class="page-title">Customer Database</h2>
+                <input type="text" id="customerSearch" placeholder="Search customers..." class="dash-search">
+            </div>
+            <div id="customersList"></div>
         </div>
 
     </div>
@@ -93,7 +192,10 @@
                     <h2 id="modalOrderRef">Order #</h2>
                     <span class="modal-status-badge" id="modalStatusBadge"></span>
                 </div>
-                <button class="modal-close" id="modalClose">✕</button>
+                <div style="display:flex;gap:10px;align-items:center">
+                    <button class="dash-btn dash-btn--outline dash-btn--sm" id="printBtn">🖨️ Print Invoice</button>
+                    <button class="modal-close" id="modalClose">✕</button>
+                </div>
             </div>
             <div class="modal-body" id="modalBody"></div>
         </div>
@@ -113,16 +215,46 @@
                     <div class="form-group"><label>Phone / WhatsApp</label><input type="tel" id="m_phone" placeholder="+44..."></div>
                     <div class="form-group"><label>Event Date</label><input type="date" id="m_date"></div>
                     <div class="form-group full"><label>Delivery Address</label><textarea id="m_address" rows="2"></textarea></div>
-                    <div class="form-group full"><label>Items & Details (describe the full order)</label><textarea id="m_items" rows="4" placeholder="e.g. 5× Custom Robes — Blush, names: Sarah, Emma, Lucy, Hannah, Zoe. 2× Champagne Flutes..."></textarea></div>
+                    <div class="form-group full"><label>Items & Details</label><textarea id="m_items" rows="4" placeholder="e.g. 5× Custom Robes — Blush, names: Sarah, Emma..."></textarea></div>
                     <div class="form-group"><label>Estimated Total (£)</label><input type="number" id="m_total" placeholder="0.00" step="0.01"></div>
                     <div class="form-group"><label>Source</label>
                         <select id="m_source"><option>WhatsApp</option><option>Instagram</option><option>Facebook</option><option>Referral</option><option>Other</option></select>
                     </div>
-                    <div class="form-group full"><label>Notes</label><textarea id="m_notes" rows="2" placeholder="Any additional notes..."></textarea></div>
+                    <div class="form-group full"><label>Notes</label><textarea id="m_notes" rows="2"></textarea></div>
                 </div>
                 <div style="display:flex;gap:12px;margin-top:20px">
                     <button class="dash-btn dash-btn--green" id="saveManualBtn">Save Order</button>
                     <button class="dash-btn dash-btn--ghost" id="cancelManualBtn">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- STOCK MODAL -->
+    <div class="modal-overlay" id="stockModal" style="display:none">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h2 id="stockModalTitle">Add Stock Item</h2>
+                <button class="modal-close" id="stockModalClose">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group"><label>Item Name *</label><input type="text" id="s_name" placeholder="e.g. Satin Ribbon — Blush"></div>
+                <div class="form-group"><label>Category</label>
+                    <select id="s_cat">
+                        <option>Materials</option>
+                        <option>Packaging</option>
+                        <option>Products</option>
+                        <option>Tools</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="form-group"><label>Current Stock</label><input type="number" id="s_qty" placeholder="0" min="0"></div>
+                <div class="form-group"><label>Low Stock Warning At</label><input type="number" id="s_low" placeholder="5" min="0"></div>
+                <div class="form-group"><label>Unit</label><input type="text" id="s_unit" placeholder="e.g. metres, rolls, boxes"></div>
+                <div class="form-group"><label>Notes</label><textarea id="s_notes" rows="2" placeholder="Supplier, link, colour etc."></textarea></div>
+                <div style="display:flex;gap:12px;margin-top:20px">
+                    <button class="dash-btn dash-btn--green" id="saveStockBtn">Save</button>
+                    <button class="dash-btn dash-btn--ghost" id="cancelStockBtn">Cancel</button>
                 </div>
             </div>
         </div>

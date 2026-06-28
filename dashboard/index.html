@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelly's Dashboard | Made by Kelly</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+    <!-- LOGIN SCREEN -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-box">
+            <div class="login-logo">Made by <span>Kelly</span></div>
+            <h1>Dashboard</h1>
+            <p>Enter your password to access order management.</p>
+            <div class="form-group">
+                <input type="password" id="loginPassword" placeholder="Password" autofocus>
+            </div>
+            <button class="dash-btn dash-btn--green" id="loginBtn">Login</button>
+            <p class="login-error" id="loginError" style="display:none">Incorrect password. Try again.</p>
+        </div>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div id="dashboardApp" style="display:none">
+
+        <!-- TOPBAR -->
+        <header class="dash-header">
+            <div class="dash-header-inner">
+                <div class="dash-logo">Made by <span>Kelly</span> — Orders</div>
+                <div class="dash-header-right">
+                    <span class="dash-live-dot" title="Live updates on"></span>
+                    <button class="dash-btn dash-btn--outline" id="addManualBtn">+ Manual Order</button>
+                    <button class="dash-btn dash-btn--ghost" id="logoutBtn">Logout</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- STATS ROW -->
+        <div class="dash-stats">
+            <div class="stat-card">
+                <span class="stat-val" id="statPending">—</span>
+                <span class="stat-key">Pending</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-val" id="statAccepted">—</span>
+                <span class="stat-key">Accepted</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-val" id="statInProgress">—</span>
+                <span class="stat-key">In Progress</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-val" id="statDone">—</span>
+                <span class="stat-key">Complete</span>
+            </div>
+            <div class="stat-card stat-card--green">
+                <span class="stat-val" id="statRevenue">—</span>
+                <span class="stat-key">Total Revenue</span>
+            </div>
+        </div>
+
+        <!-- FILTERS + SEARCH -->
+        <div class="dash-toolbar">
+            <div class="dash-filters">
+                <button class="filter-chip active" data-filter="all">All</button>
+                <button class="filter-chip" data-filter="pending">Pending</button>
+                <button class="filter-chip" data-filter="accepted">Accepted</button>
+                <button class="filter-chip" data-filter="in-progress">In Progress</button>
+                <button class="filter-chip" data-filter="complete">Complete</button>
+                <button class="filter-chip" data-filter="rejected">Rejected</button>
+            </div>
+            <input type="text" id="dashSearch" placeholder="Search by name, ref, product..." class="dash-search">
+        </div>
+
+        <!-- ORDERS TABLE -->
+        <div class="orders-wrap">
+            <div id="ordersLoading" class="dash-loading">Loading orders...</div>
+            <div id="ordersList"></div>
+        </div>
+
+    </div>
+
+    <!-- ORDER DETAIL MODAL -->
+    <div class="modal-overlay" id="orderModal" style="display:none">
+        <div class="modal-box modal-box--large">
+            <div class="modal-header">
+                <div>
+                    <h2 id="modalOrderRef">Order #</h2>
+                    <span class="modal-status-badge" id="modalStatusBadge"></span>
+                </div>
+                <button class="modal-close" id="modalClose">✕</button>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- MANUAL ORDER MODAL -->
+    <div class="modal-overlay" id="manualModal" style="display:none">
+        <div class="modal-box modal-box--large">
+            <div class="modal-header">
+                <h2>Add Manual Order</h2>
+                <button class="modal-close" id="manualClose">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="manual-grid">
+                    <div class="form-group"><label>Customer Name *</label><input type="text" id="m_name" placeholder="Full name"></div>
+                    <div class="form-group"><label>Email</label><input type="email" id="m_email" placeholder="email@example.com"></div>
+                    <div class="form-group"><label>Phone / WhatsApp</label><input type="tel" id="m_phone" placeholder="+44..."></div>
+                    <div class="form-group"><label>Event Date</label><input type="date" id="m_date"></div>
+                    <div class="form-group full"><label>Delivery Address</label><textarea id="m_address" rows="2"></textarea></div>
+                    <div class="form-group full"><label>Items & Details (describe the full order)</label><textarea id="m_items" rows="4" placeholder="e.g. 5× Custom Robes — Blush, names: Sarah, Emma, Lucy, Hannah, Zoe. 2× Champagne Flutes..."></textarea></div>
+                    <div class="form-group"><label>Estimated Total (£)</label><input type="number" id="m_total" placeholder="0.00" step="0.01"></div>
+                    <div class="form-group"><label>Source</label>
+                        <select id="m_source"><option>WhatsApp</option><option>Instagram</option><option>Facebook</option><option>Referral</option><option>Other</option></select>
+                    </div>
+                    <div class="form-group full"><label>Notes</label><textarea id="m_notes" rows="2" placeholder="Any additional notes..."></textarea></div>
+                </div>
+                <div style="display:flex;gap:12px;margin-top:20px">
+                    <button class="dash-btn dash-btn--green" id="saveManualBtn">Save Order</button>
+                    <button class="dash-btn dash-btn--ghost" id="cancelManualBtn">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="dashboard.js"></script>
+</body>
+</html>

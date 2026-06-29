@@ -932,3 +932,58 @@ ul { list-style: none; }
     padding: 3px 8px;
 }
 .ind-tag strong { color: #2c2c2c; }
+
+/* ── CLEANER ITEM TABLE ── */
+.item-detail-table { display: flex; flex-direction: column; gap: 0; margin-top: 6px; }
+
+.ind-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    padding: 4px 0;
+    border-bottom: 1px solid #f5f2ee;
+}
+.ind-row:last-child { border-bottom: none; }
+.ind-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #8fa88f;
+    min-width: 60px;
+    flex-shrink: 0;
+}
+.ind-val { font-size: 0.9rem; color: #2c2c2c; font-weight: 600; }
+
+.item-notes-row {
+    margin-top: 8px;
+    background: #fffbeb;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    color: #92400e;
+    line-height: 1.5;
+}
+
+.item-individual-row {
+    background: white;
+    border: 1.5px solid #e5e0d8;
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.item-individual-num {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: white;
+    background: #3f4a3f;
+    border-radius: 50px;
+    padding: 3px 12px;
+    width: fit-content;
+}
+.item-individual-details { display: flex; flex-direction: column; gap: 0; }

@@ -396,52 +396,56 @@ function openOrder(id) {
 
     const date = o.createdAt?.seconds ? new Date(o.createdAt.seconds*1000).toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'}) : '—';
     const itemsHtml = o.items ? o.items.map(item => {
-        // Build clear personalisation block
         let personalisationHtml = '';
 
-        if (item.colour) {
-            personalisationHtml += `<div class="item-detail-row"><span class="item-detail-label">Colour</span><span class="item-detail-val">${item.colour}</span></div>`;
-        }
-
         if (item.sameForAll === true || item.qty <= 1) {
-            // Same for all — show shared details
+            // ── SAME FOR ALL ──
             const shared = item.shared || item.customisation || {};
-            const sharedLines = [
-                shared.name ? `<div class="item-detail-row"><span class="item-detail-label">Name</span><span class="item-detail-val">${shared.name}</span></div>` : '',
-                shared.text ? `<div class="item-detail-row"><span class="item-detail-label">Text</span><span class="item-detail-val">${shared.text}</span></div>` : '',
-                shared.size ? `<div class="item-detail-row"><span class="item-detail-label">Size</span><span class="item-detail-val">${shared.size}</span></div>` : '',
+            const colour = item.colour || shared.colour || '';
+            const rows = [
+                colour       ? row('Colour', colour) : '',
+                shared.name  ? row('Name',   shared.name) : '',
+                shared.text  ? row('Text',   shared.text) : '',
+                shared.size  ? row('Size',   shared.size) : '',
             ].filter(Boolean).join('');
-            if (sharedLines) {
-                personalisationHtml += `
-                <div class="item-same-badge">✅ Same personalisation on all ${item.qty} item${item.qty>1?'s':''}</div>
-                ${sharedLines}`;
+
+            if (rows) {
+                personalisationHtml = `
+                <div class="item-same-badge">✅ Same on all ${item.qty} item${item.qty>1?'s':''}</div>
+                <div class="item-detail-table">${rows}</div>`;
             }
+
         } else if (item.sameForAll === false && item.individual?.length) {
-            // Individual — show each one clearly
-            personalisationHtml += `<div class="item-same-badge item-same-badge--diff">✏️ Each item is different — ${item.qty} individual items</div>`;
+            // ── EACH DIFFERENT ──
+            personalisationHtml = `<div class="item-same-badge item-same-badge--diff">✏️ Each item personalised differently</div>`;
             item.individual.forEach((ind, i) => {
-                const lines = [
-                    ind.name ? `<span class="ind-tag">Name: <strong>${ind.name}</strong></span>` : '',
-                    ind.text ? `<span class="ind-tag">Text: <strong>${ind.text}</strong></span>` : '',
-                    ind.size ? `<span class="ind-tag">Size: <strong>${ind.size}</strong></span>` : '',
+                const colour = ind.colour || item.colour || '';
+                const tags = [
+                    colour    ? `<div class="ind-row"><span class="ind-label">Colour</span><span class="ind-val">${colour}</span></div>` : '',
+                    ind.name  ? `<div class="ind-row"><span class="ind-label">Name</span><span class="ind-val">${ind.name}</span></div>` : '',
+                    ind.text  ? `<div class="ind-row"><span class="ind-label">Text</span><span class="ind-val">${ind.text}</span></div>` : '',
+                    ind.size  ? `<div class="ind-row"><span class="ind-label">Size</span><span class="ind-val">${ind.size}</span></div>` : '',
                 ].filter(Boolean).join('');
-                if (lines) {
-                    personalisationHtml += `
-                    <div class="item-individual-row">
-                        <span class="item-individual-num">Item ${i+1}</span>
-                        <div class="item-individual-details">${lines}</div>
-                    </div>`;
-                }
+                personalisationHtml += `
+                <div class="item-individual-row">
+                    <div class="item-individual-num">Item ${i+1} of ${item.qty}</div>
+                    <div class="item-individual-details">${tags || '<span style="color:#bbb;font-size:0.82rem">No details entered</span>'}</div>
+                </div>`;
             });
+
         } else {
-            // Legacy orders — show old customisation tags
+            // ── LEGACY / MANUAL ORDERS ──
             const custom = item.customisation || {};
-            const tags = Object.entries(custom).filter(([,v])=>v).map(([k,v])=>`<div class="item-detail-row"><span class="item-detail-label">${k.replace(/_/g,' ')}</span><span class="item-detail-val">${v}</span></div>`).join('');
-            if (tags) personalisationHtml += tags;
+            const colour = item.colour || '';
+            const rows = [
+                colour ? row('Colour', colour) : '',
+                ...Object.entries(custom).filter(([,v])=>v).map(([k,v]) => row(k.replace(/_/g,' '), v))
+            ].filter(Boolean).join('');
+            if (rows) personalisationHtml = `<div class="item-detail-table">${rows}</div>`;
         }
 
         if (item.instructions) {
-            personalisationHtml += `<div class="item-detail-row item-detail-row--note"><span class="item-detail-label">Notes</span><span class="item-detail-val">${item.instructions}</span></div>`;
+            personalisationHtml += `<div class="item-notes-row">📝 <strong>Notes:</strong> ${item.instructions}</div>`;
         }
 
         return `
@@ -453,9 +457,15 @@ function openOrder(id) {
                     <span class="modal-item-price">£${item.lineTotal?.toFixed(2)||'—'}</span>
                 </div>
             </div>
-            ${personalisationHtml ? `<div class="modal-item-personalisation">${personalisationHtml}</div>` : '<div class="modal-item-no-custom">No personalisation details</div>'}
+            ${personalisationHtml
+                ? `<div class="modal-item-personalisation">${personalisationHtml}</div>`
+                : `<div class="modal-item-no-custom">No personalisation needed</div>`}
         </div>`;
     }).join('') : `<p style="color:#888;font-size:0.9rem">${o.manualItems||'No items.'}</p>`;
+
+    function row(label, val) {
+        return `<div class="item-detail-row"><span class="item-detail-label">${label}</span><span class="item-detail-val">${val}</span></div>`;
+    }
 
     document.getElementById('modalBody').innerHTML = `
         <div class="detail-grid">

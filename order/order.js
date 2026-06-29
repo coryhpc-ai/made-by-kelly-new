@@ -100,7 +100,7 @@ function renderPicker(filter = '') {
             if (basket[id]) {
                 delete basket[id];
             } else {
-                basket[id] = { product, qty: 1, colour: '', sameForAll: null, shared: { name:'', text:'', size:'' }, individual: [{ name:'', text:'', size:'' }] };
+                basket[id] = { product, qty: 1, colour: '', sameForAll: null, shared: { name:'', text:'', size:'', colour:'' }, individual: [{ name:'', text:'', size:'', colour:'' }] };
             }
             renderPicker(document.getElementById('productSearch').value);
             updateBasketMini();
@@ -153,10 +153,10 @@ function renderItemBlock(product) {
         </div>
 
         ${needsPersonalisation ? `
-        <!-- COLOUR (always shared) -->
+        <!-- COLOUR — shared when same for all, hidden when individual -->
         ${product.hasColour ? `
-        <div class="form-group">
-            <label>Colour</label>
+        <div class="form-group" id="sharedColour-${product.id}" style="${item.sameForAll === false ? 'display:none' : ''}">
+            <label>Colour${item.qty > 1 && item.sameForAll !== false ? ' — same for all items' : ''}</label>
             <select data-id="${product.id}" data-field="colour" class="colour-select">
                 <option value="">Select colour...</option>
                 ${product.colours.map(c => `<option ${item.colour===c?'selected':''}>${c}</option>`).join('')}
@@ -200,17 +200,29 @@ function renderItemBlock(product) {
 }
 
 function renderPersonaliseFields(product, data, prefix, showSizeNote) {
+    // showSizeNote=true means shared (all items same) — don't show colour per item
+    // showSizeNote=false means individual item
+    const isIndividual = prefix.startsWith('ind_');
     return `
     <div class="personalise-fields-inner">
         ${product.hasName ? `
         <div class="form-group">
-            <label>Name to personalise${showSizeNote ? ' (applied to all)' : ''}</label>
+            <label>Name to personalise${showSizeNote ? ' (same for all)' : ''}</label>
             <input type="text" class="pfield" data-prefix="${prefix}" data-field="name" placeholder="e.g. Sarah" value="${data?.name||''}">
         </div>` : ''}
         ${product.hasText ? `
         <div class="form-group">
-            <label>Custom text${showSizeNote ? ' (applied to all)' : ''}</label>
+            <label>Custom text${showSizeNote ? ' (same for all)' : ''}</label>
             <input type="text" class="pfield" data-prefix="${prefix}" data-field="text" placeholder="e.g. Bridesmaid, Best Mum Ever..." value="${data?.text||''}">
+        </div>` : ''}
+        ${product.hasColour && isIndividual ? `
+        <div class="form-group">
+            <label>Colour</label>
+            <select class="pfield" data-prefix="${prefix}" data-field="colour">
+                <option value="">Select colour...</option>
+                ${product.colours.map(c => `<option ${data?.colour===c?'selected':''}>${c}</option>`).join('')}
+                <option ${data?.colour==='Other'?'selected':''}>Other — specify in notes</option>
+            </select>
         </div>` : ''}
         ${product.hasSizes ? `
         <div class="form-group">
@@ -249,7 +261,7 @@ function attachPersonalisationListeners() {
             basket[id].qty = qty;
             document.getElementById(`linetotal-${id}`).textContent = `£${(basket[id].product.price * qty).toFixed(2)}`;
             if (basket[id].sameForAll === false) {
-                basket[id].individual = Array.from({length: qty}, (_, i) => basket[id].individual[i] || {name:'',text:'',size:''});
+                basket[id].individual = Array.from({length: qty}, (_, i) => basket[id].individual[i] || {name:'',text:'',size:'',colour:''});
                 document.getElementById(`individualFields-${id}`).innerHTML =
                     basket[id].individual.map((ind, i) => `
                     <div class="individual-item-block">
@@ -275,15 +287,18 @@ function attachPersonalisationListeners() {
             const sharedEl = document.getElementById(`sharedFields-${id}`);
             const indEl    = document.getElementById(`individualFields-${id}`);
 
+            const sharedColourEl = document.getElementById(`sharedColour-${id}`);
             if (same) {
                 sharedEl.style.display = 'block';
                 indEl.style.display = 'none';
+                if (sharedColourEl) sharedColourEl.style.display = 'block';
             } else {
                 sharedEl.style.display = 'none';
                 indEl.style.display = 'block';
+                if (sharedColourEl) sharedColourEl.style.display = 'none';
                 // Build individual entries if not already
                 const qty = basket[id].qty;
-                basket[id].individual = Array.from({length: qty}, (_, i) => basket[id].individual[i] || {name:'',text:'',size:''});
+                basket[id].individual = Array.from({length: qty}, (_, i) => basket[id].individual[i] || {name:'',text:'',size:'',colour:''});
                 indEl.innerHTML = basket[id].individual.map((ind, i) => `
                     <div class="individual-item-block">
                         <div class="individual-item-label">Item ${i+1} of ${qty}</div>
@@ -332,7 +347,7 @@ function savePfield(id, el) {
 function updateQty(id, qty) {
     basket[id].qty = qty;
     basket[id].sameForAll = null;
-    basket[id].individual = Array.from({length: qty}, (_, i) => basket[id].individual[i] || {name:'',text:'',size:''});
+    basket[id].individual = Array.from({length: qty}, (_, i) => basket[id].individual[i] || {name:'',text:'',size:'',colour:''});
 
     const block = document.getElementById(`block-${id}`);
     block.innerHTML = renderItemBlock(basket[id].product).replace(/<div class="item-personalise-block"[^>]*>/, '').replace(/<\/div>$/, '');

@@ -396,11 +396,64 @@ function openOrder(id) {
 
     const date = o.createdAt?.seconds ? new Date(o.createdAt.seconds*1000).toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'}) : '—';
     const itemsHtml = o.items ? o.items.map(item => {
-        const custom = item.customisation || {};
-        const tags = Object.entries(custom).filter(([,v])=>v).map(([k,v])=>`<span class="modal-item-tag">${k.replace(/_/g,' ')}: ${v}</span>`).join('');
-        return `<div class="modal-item">
-            <div class="modal-item-name">${item.productName} <span style="color:#8fa88f">× ${item.qty}</span><span class="modal-item-price">£${item.lineTotal?.toFixed(2)||'—'}</span></div>
-            ${tags ? `<div class="modal-item-details">${tags}</div>` : ''}
+        // Build clear personalisation block
+        let personalisationHtml = '';
+
+        if (item.colour) {
+            personalisationHtml += `<div class="item-detail-row"><span class="item-detail-label">Colour</span><span class="item-detail-val">${item.colour}</span></div>`;
+        }
+
+        if (item.sameForAll === true || item.qty <= 1) {
+            // Same for all — show shared details
+            const shared = item.shared || item.customisation || {};
+            const sharedLines = [
+                shared.name ? `<div class="item-detail-row"><span class="item-detail-label">Name</span><span class="item-detail-val">${shared.name}</span></div>` : '',
+                shared.text ? `<div class="item-detail-row"><span class="item-detail-label">Text</span><span class="item-detail-val">${shared.text}</span></div>` : '',
+                shared.size ? `<div class="item-detail-row"><span class="item-detail-label">Size</span><span class="item-detail-val">${shared.size}</span></div>` : '',
+            ].filter(Boolean).join('');
+            if (sharedLines) {
+                personalisationHtml += `
+                <div class="item-same-badge">✅ Same personalisation on all ${item.qty} item${item.qty>1?'s':''}</div>
+                ${sharedLines}`;
+            }
+        } else if (item.sameForAll === false && item.individual?.length) {
+            // Individual — show each one clearly
+            personalisationHtml += `<div class="item-same-badge item-same-badge--diff">✏️ Each item is different — ${item.qty} individual items</div>`;
+            item.individual.forEach((ind, i) => {
+                const lines = [
+                    ind.name ? `<span class="ind-tag">Name: <strong>${ind.name}</strong></span>` : '',
+                    ind.text ? `<span class="ind-tag">Text: <strong>${ind.text}</strong></span>` : '',
+                    ind.size ? `<span class="ind-tag">Size: <strong>${ind.size}</strong></span>` : '',
+                ].filter(Boolean).join('');
+                if (lines) {
+                    personalisationHtml += `
+                    <div class="item-individual-row">
+                        <span class="item-individual-num">Item ${i+1}</span>
+                        <div class="item-individual-details">${lines}</div>
+                    </div>`;
+                }
+            });
+        } else {
+            // Legacy orders — show old customisation tags
+            const custom = item.customisation || {};
+            const tags = Object.entries(custom).filter(([,v])=>v).map(([k,v])=>`<div class="item-detail-row"><span class="item-detail-label">${k.replace(/_/g,' ')}</span><span class="item-detail-val">${v}</span></div>`).join('');
+            if (tags) personalisationHtml += tags;
+        }
+
+        if (item.instructions) {
+            personalisationHtml += `<div class="item-detail-row item-detail-row--note"><span class="item-detail-label">Notes</span><span class="item-detail-val">${item.instructions}</span></div>`;
+        }
+
+        return `
+        <div class="modal-item">
+            <div class="modal-item-header">
+                <div class="modal-item-name">${item.productName}</div>
+                <div class="modal-item-meta">
+                    <span class="modal-item-qty">× ${item.qty}</span>
+                    <span class="modal-item-price">£${item.lineTotal?.toFixed(2)||'—'}</span>
+                </div>
+            </div>
+            ${personalisationHtml ? `<div class="modal-item-personalisation">${personalisationHtml}</div>` : '<div class="modal-item-no-custom">No personalisation details</div>'}
         </div>`;
     }).join('') : `<p style="color:#888;font-size:0.9rem">${o.manualItems||'No items.'}</p>`;
 
@@ -463,6 +516,23 @@ function openOrder(id) {
             <button class="dash-btn dash-btn--green" id="saveOrderBtn">Save Changes</button>
             <a href="mailto:${o.customer?.email}?subject=Your Made by Kelly Order (${o.ref})" class="dash-btn dash-btn--outline">✉️ Email</a>
             <a href="https://wa.me/${(o.customer?.phone||'').replace(/\D/g,'')}?text=Hi%20${encodeURIComponent(o.customer?.name||'')}%2C%20this%20is%20Kelly%20regarding%20your%20order%20${o.ref}" target="_blank" class="dash-btn dash-btn--outline">💬 WhatsApp</a>
+            <div class="order-more-wrap" style="margin-left:auto;position:relative">
+                <button class="dash-btn dash-btn--ghost dash-btn--sm" id="moreOptionsBtn">⋯</button>
+                <div class="order-more-menu" id="moreOptionsMenu" style="display:none">
+                    <button class="more-menu-item" id="duplicateOrderBtn">📋 Duplicate Order</button>
+                    <button class="more-menu-item more-menu-item--danger" id="deleteOrderBtn">🗑️ Delete Order</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- DELETE CONFIRM -->
+        <div id="deleteConfirmBox" style="display:none;margin-top:16px;background:#fff5f5;border:1.5px solid #fca5a5;border-radius:12px;padding:16px 18px">
+            <p style="font-size:0.88rem;color:#991b1b;margin-bottom:10px;font-weight:600">⚠️ This will permanently delete this order. Type <strong>DELETE</strong> to confirm.</p>
+            <div style="display:flex;gap:10px;align-items:center">
+                <input type="text" id="deleteConfirmInput" placeholder="Type DELETE here" style="flex:1;padding:9px 14px;border:1.5px solid #fca5a5;border-radius:8px;font-size:0.9rem;font-family:'Inter',sans-serif;outline:none">
+                <button class="dash-btn dash-btn--red" id="confirmDeleteBtn">Delete Order</button>
+                <button class="dash-btn dash-btn--ghost" id="cancelDeleteBtn">Cancel</button>
+            </div>
         </div>`;
 
     document.getElementById('saveOrderBtn').addEventListener('click', async () => {
@@ -481,6 +551,60 @@ function openOrder(id) {
     });
 
     document.getElementById('printBtn').onclick = () => printInvoice(o);
+
+    // ⋯ More options menu
+    const moreBtn = document.getElementById('moreOptionsBtn');
+    const moreMenu = document.getElementById('moreOptionsMenu');
+    moreBtn.addEventListener('click', e => {
+        e.stopPropagation();
+        moreMenu.style.display = moreMenu.style.display === 'none' ? 'block' : 'none';
+    });
+    document.addEventListener('click', () => { moreMenu.style.display = 'none'; }, { once: true });
+
+    // Duplicate order
+    document.getElementById('duplicateOrderBtn').addEventListener('click', async () => {
+        moreMenu.style.display = 'none';
+        if (!confirm('Duplicate this order?')) return;
+        try {
+            const { id: _id, ref: _ref, createdAt: _ca, ...rest } = o;
+            await addDoc(collection(db, 'orders'), {
+                ...rest,
+                ref: 'MBK-' + Date.now().toString(36).toUpperCase(),
+                status: 'pending',
+                createdAt: serverTimestamp(),
+                paid: false,
+                shipped: false,
+            });
+            document.getElementById('orderModal').style.display = 'none';
+        } catch(e) { alert('Error duplicating order.'); }
+    });
+
+    // Delete order
+    document.getElementById('deleteOrderBtn').addEventListener('click', () => {
+        moreMenu.style.display = 'none';
+        document.getElementById('deleteConfirmBox').style.display = 'block';
+        document.getElementById('deleteConfirmInput').focus();
+    });
+    document.getElementById('cancelDeleteBtn').addEventListener('click', () => {
+        document.getElementById('deleteConfirmBox').style.display = 'none';
+        document.getElementById('deleteConfirmInput').value = '';
+    });
+    document.getElementById('confirmDeleteBtn').addEventListener('click', async () => {
+        const val = document.getElementById('deleteConfirmInput').value.trim();
+        if (val !== 'DELETE') {
+            document.getElementById('deleteConfirmInput').style.borderColor = '#e05a6a';
+            document.getElementById('deleteConfirmInput').placeholder = 'Must type DELETE exactly';
+            return;
+        }
+        try {
+            await deleteDoc(doc(db, 'orders', id));
+            document.getElementById('orderModal').style.display = 'none';
+        } catch(e) { alert('Error deleting order.'); }
+    });
+    document.getElementById('deleteConfirmInput').addEventListener('input', function() {
+        this.style.borderColor = '#fca5a5';
+    });
+
     document.getElementById('orderModal').style.display = 'flex';
 }
 
@@ -524,9 +648,25 @@ function printInvoice(o) {
     const date = o.createdAt?.seconds ? new Date(o.createdAt.seconds*1000).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'}) : '—';
     const sc = {pending:{bg:'#fff8e6',color:'#b45309'},accepted:{bg:'#ecfdf5',color:'#065f46'},'in-progress':{bg:'#eff6ff',color:'#1d4ed8'},complete:{bg:'#f0fdf4',color:'#166534'},rejected:{bg:'#fef2f2',color:'#991b1b'}}[o.status]||{bg:'#f3f4f6',color:'#374151'};
     const itemRows = o.items ? o.items.map((item,i)=>{
-        const custom=item.customisation||{};
-        const details=Object.entries(custom).filter(([,v])=>v).map(([k,v])=>`${k.replace(/_/g,' ')}: <strong>${v}</strong>`).join(' · ');
-        return `<tr style="background:${i%2===0?'#fff':'#fafaf9'}"><td><div style="font-weight:600;color:#1a1a1a;margin-bottom:${details?'4px':'0'}">${item.productName}</div>${details?`<div style="font-size:0.78rem;color:#888">${details}</div>`:''}</td><td style="text-align:center;color:#555">${item.qty}</td><td style="text-align:right;color:#555">£${item.unitPrice?.toFixed(2)}</td><td style="text-align:right;font-weight:600;color:#3f4a3f">£${item.lineTotal?.toFixed(2)}</td></tr>`;
+        let details = '';
+        if (item.colour) details += `Colour: <strong>${item.colour}</strong> &nbsp;·&nbsp; `;
+        if (item.sameForAll === true || item.qty <= 1) {
+            const s = item.shared || item.customisation || {};
+            if (s.name) details += `Name: <strong>${s.name}</strong> &nbsp;·&nbsp; `;
+            if (s.text) details += `Text: <strong>${s.text}</strong> &nbsp;·&nbsp; `;
+            if (s.size) details += `Size: <strong>${s.size}</strong> &nbsp;·&nbsp; `;
+            details = details.replace(/ &nbsp;·&nbsp; $/, '');
+        } else if (item.sameForAll === false && item.individual?.length) {
+            details += item.individual.map((ind,i)=>{
+                const parts = [ind.name?`Name: <strong>${ind.name}</strong>`:'', ind.text?`Text: <strong>${ind.text}</strong>`:'', ind.size?`Size: <strong>${ind.size}</strong>`:''].filter(Boolean).join(' · ');
+                return parts ? `<div style="margin:3px 0"><span style="background:#3f4a3f;color:white;border-radius:4px;padding:1px 6px;font-size:0.75rem;margin-right:6px">Item ${i+1}</span>${parts}</div>` : '';
+            }).join('');
+        } else {
+            const custom=item.customisation||{};
+            details = Object.entries(custom).filter(([,v])=>v).map(([k,v])=>`${k.replace(/_/g,' ')}: <strong>${v}</strong>`).join(' · ');
+        }
+        if (item.instructions) details += `${details?'<br>':''}📝 ${item.instructions}`;
+        return `<tr style="background:${i%2===0?'#fff':'#fafaf9'}"><td><div style="font-weight:600;color:#1a1a1a;margin-bottom:${details?'6px':'0'}">${item.productName}</div>${details?`<div style="font-size:0.78rem;color:#555;line-height:1.7">${details}</div>`:''}</td><td style="text-align:center;color:#555">${item.qty}</td><td style="text-align:right;color:#555">£${item.unitPrice?.toFixed(2)}</td><td style="text-align:right;font-weight:600;color:#3f4a3f">£${item.lineTotal?.toFixed(2)}</td></tr>`;
     }).join('') : `<tr><td colspan="4">${o.manualItems||'—'}</td></tr>`;
 
     const win=window.open('','_blank');

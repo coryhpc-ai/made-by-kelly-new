@@ -4,13 +4,13 @@ import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.0/firebas
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAA1taCR7KHcPtnp2z44r_Wt_ielb_JhQg",
-  authDomain: "wildlives.firebaseapp.com",
-  projectId: "wildlives",
-  storageBucket: "wildlives.firebasestorage.app",
-  messagingSenderId: "792162914690",
-  appId: "1:792162914690:web:fd2dd9ee1f1a327a6f3f9b",
-  measurementId: "G-SJ9LYWHJPS"
+  apiKey: "AIzaSyATmW_ozZ7IhRFGRMiObdv56odRdCRguho",
+  authDomain: "made-by-kelly.firebaseapp.com",
+  projectId: "made-by-kelly",
+  storageBucket: "made-by-kelly.firebasestorage.app",
+  messagingSenderId: "375313114709",
+  appId: "1:375313114709:web:1fea72856aaf0fc69f56dc",
+  measurementId: "G-CF5JEHQ7JJ"
 };
 
 const app = initializeApp(firebaseConfig);

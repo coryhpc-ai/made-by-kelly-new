@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Place an Order | Made by Kelly</title>
-    <meta name="description" content="Place a personalised order with Made by Kelly — tell us what you'd like and we'll get it made just for you.">
+    <meta name="description" content="Place a personalised order with Made by Kelly.">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/base.css">
@@ -16,134 +16,154 @@
 
     <header class="header">
         <div class="header-content container">
-            <nav class="nav-left">
-                <ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="../shop.html">Shop</a></li>
-                    <li><a href="../shop.html#bridesmaid">Bridesmaid Gifts</a></li>
-                    <li><a href="../gift-sets.html">Gift Sets</a></li>
-                </ul>
-            </nav>
-            <a href="../index.html" class="logo">Made by <span>Kelly</span></a>
-            <nav class="nav-right">
-                <ul>
-                    <li><a href="../price-list.html">Price List</a></li>
-                    <li><a href="../customize.html">Customize</a></li>
-                    <li><a href="../about.html">About</a></li>
-                    <li><a href="../order/" class="active">Order</a></li>
-                </ul>
-            </nav>
-            <button class="burger-menu" id="burger" aria-label="Toggle menu">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
-        <div class="mobile-menu" id="mobileMenu">
-            <ul>
+            <nav class="nav-left"><ul>
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="../shop.html">Shop</a></li>
+                <li><a href="../shop.html#bridesmaid">Bridesmaid Gifts</a></li>
+                <li><a href="../gift-sets.html">Gift Sets</a></li>
+            </ul></nav>
+            <a href="../index.html" class="logo">Made by <span>Kelly</span></a>
+            <nav class="nav-right"><ul>
                 <li><a href="../price-list.html">Price List</a></li>
-                <li><a href="order.html">Place an Order</a></li>
-            </ul>
+                <li><a href="../customize.html">Customize</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="index.html" class="active">Order</a></li>
+            </ul></nav>
+            <button class="burger-menu" id="burger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
         </div>
+        <div class="mobile-menu" id="mobileMenu"><ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../shop.html">Shop</a></li>
+            <li><a href="../price-list.html">Price List</a></li>
+            <li><a href="index.html">Place an Order</a></li>
+        </ul></div>
     </header>
 
-    <!-- HERO -->
     <section class="order-hero">
         <div class="container">
             <div class="section-label">Let's get started</div>
             <h1>Place Your Order</h1>
-            <p>Add the items you'd like, fill in your personalisation details, and Kelly will confirm everything with you.</p>
+            <p>Build your order below — Kelly will confirm everything with you before any payment is taken.</p>
         </div>
     </section>
 
+    <!-- PROGRESS BAR -->
+    <div class="order-progress">
+        <div class="progress-step active" data-step="1"><span class="progress-num">1</span><span class="progress-label">Choose Items</span></div>
+        <div class="progress-line"></div>
+        <div class="progress-step" data-step="2"><span class="progress-num">2</span><span class="progress-label">Personalise</span></div>
+        <div class="progress-line"></div>
+        <div class="progress-step" data-step="3"><span class="progress-num">3</span><span class="progress-label">Your Details</span></div>
+    </div>
+
     <main class="order-main">
-        <div class="container">
-            <div class="order-layout">
+        <div class="order-container">
 
-                <!-- LEFT: Product picker -->
-                <div class="order-left">
-                    <div class="order-step-header">
-                        <span class="order-step-num">1</span>
-                        <h2>Pick Your Items</h2>
-                    </div>
-
-                    <div class="product-search-wrap">
-                        <input type="text" id="productSearch" placeholder="Search products..." class="product-search">
-                    </div>
-
-                    <div class="product-picker" id="productPicker">
-                        <!-- Products injected by JS -->
-                    </div>
-
-                    <!-- BASKET -->
-                    <div class="basket-section" id="basketSection" style="display:none">
-                        <div class="order-step-header">
-                            <span class="order-step-num">2</span>
-                            <h2>Your Basket</h2>
-                        </div>
-                        <div class="basket-items" id="basketItems"></div>
-                        <div class="basket-total">
-                            <span>Estimated total</span>
-                            <span id="basketTotal">£0.00</span>
-                        </div>
-                    </div>
-
-                    <!-- CUSTOMISATION -->
-                    <div class="custom-section" id="customSection" style="display:none">
-                        <div class="order-step-header">
-                            <span class="order-step-num">3</span>
-                            <h2>Personalisation Details</h2>
-                        </div>
-                        <div class="custom-fields" id="customFields">
-                            <!-- Per-item custom fields injected here -->
-                        </div>
-                    </div>
+            <!-- STEP 1: PRODUCT PICKER -->
+            <div class="order-step" id="step1">
+                <div class="step-header">
+                    <h2>What would you like?</h2>
+                    <p>Click any product to add it to your order. You can change quantities on the next step.</p>
                 </div>
-
-                <!-- RIGHT: Customer details + submit -->
-                <div class="order-right" id="orderRight" style="display:none">
-                    <div class="order-details-card">
-                        <div class="order-step-header">
-                            <span class="order-step-num">4</span>
-                            <h2>Your Details</h2>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Full Name *</label>
-                            <input type="text" id="custName" placeholder="e.g. Sarah Johnson">
-                        </div>
-                        <div class="form-group">
-                            <label>Email Address *</label>
-                            <input type="email" id="custEmail" placeholder="your@email.com">
-                        </div>
-                        <div class="form-group">
-                            <label>Phone / WhatsApp</label>
-                            <input type="tel" id="custPhone" placeholder="+44 7700 000000">
-                        </div>
-                        <div class="form-group">
-                            <label>Wedding / Event Date</label>
-                            <input type="date" id="custDate">
-                        </div>
-                        <div class="form-group">
-                            <label>Delivery Address *</label>
-                            <textarea id="custAddress" rows="3" placeholder="House number, street, town, postcode"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Anything else Kelly should know?</label>
-                            <textarea id="custNotes" rows="3" placeholder="Special requests, colour themes, deadlines..."></textarea>
-                        </div>
-
-                        <div class="order-summary-box" id="orderSummaryBox"></div>
-
-                        <button class="btn-submit" id="submitOrderBtn">
-                            <span id="submitBtnText">Submit Order Request</span>
-                            <span id="submitBtnSpinner" style="display:none">Sending...</span>
-                        </button>
-                        <p class="order-disclaimer">Kelly will review your order and confirm details with you before any payment is taken.</p>
+                <input type="text" id="productSearch" placeholder="🔍 Search products..." class="product-search">
+                <div class="product-picker" id="productPicker"></div>
+                <div class="step-footer">
+                    <div class="basket-mini" id="basketMini" style="display:none">
+                        <span id="basketMiniText"></span>
                     </div>
+                    <button class="btn-next" id="toStep2" style="display:none">Continue to Personalise →</button>
                 </div>
-
             </div>
+
+            <!-- STEP 2: PERSONALISATION -->
+            <div class="order-step" id="step2" style="display:none">
+                <div class="step-header">
+                    <h2>Personalise your items</h2>
+                    <p>Fill in the details for each item. If you want different text on each one, you can add them individually.</p>
+                </div>
+                <div id="personalisationForm"></div>
+                <div class="step-footer">
+                    <button class="btn-back" id="backToStep1">← Back</button>
+                    <button class="btn-next" id="toStep3">Continue to Your Details →</button>
+                </div>
+            </div>
+
+            <!-- STEP 3: CUSTOMER DETAILS -->
+            <div class="order-step" id="step3" style="display:none">
+                <div class="step-header">
+                    <h2>Your details</h2>
+                    <p>Where should we send your order?</p>
+                </div>
+
+                <div class="details-grid">
+                    <div class="form-group">
+                        <label>Full Name *</label>
+                        <input type="text" id="custName" placeholder="e.g. Sarah Johnson">
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address *</label>
+                        <input type="email" id="custEmail" placeholder="your@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone / WhatsApp</label>
+                        <input type="tel" id="custPhone" placeholder="+44 7700 000000">
+                    </div>
+                    <div class="form-group">
+                        <label>Wedding / Event Date</label>
+                        <input type="date" id="custDate">
+                    </div>
+                </div>
+
+                                                <!-- ADDRESS -->
+                <div class="address-section">
+                    <div class="form-group">
+                        <label>Postcode *</label>
+                        <div class="postcode-wrap">
+                            <input type="text" id="postcodeInput" placeholder="Start typing your postcode..." autocomplete="off" style="text-transform:uppercase">
+                            <div class="postcode-suggestions" id="postcodeSuggestions"></div>
+                        </div>
+                        <p class="postcode-hint">Start typing and we'll suggest matching postcodes.</p>
+                        <p class="postcode-error" id="postcodeError" style="display:none;color:#e05a6a;font-size:0.82rem;margin-top:6px"></p>
+                    </div>
+
+                    <!-- HOUSE NUMBER after postcode confirmed -->
+                    <div id="houseSection" style="display:none">
+                        <div class="form-group">
+                            <label>House number or name <span style="color:#8fa88f;font-size:0.82rem">— for postcode <strong id="postcodeConfirmed"></strong></span></label>
+                            <input type="text" id="houseInput" placeholder="e.g. 12 or Rose Cottage" autocomplete="off">
+                        </div>
+                        <div id="housePreview"></div>
+                    </div>
+
+                    <!-- FULL ADDRESS (shown after confirm or manual) -->
+                    <div id="manualAddressWrap" style="display:none">
+                        <div class="form-group">
+                            <label>Full Delivery Address *</label>
+                            <textarea id="custAddress" rows="4" placeholder="House number &amp; street&#10;Town&#10;County&#10;Postcode"></textarea>
+                        </div>
+                    </div>
+
+                    <button class="btn-manual-link" id="toggleManual" type="button">✏️ Enter address manually instead</button>
+                </div>
+
+                <div class="form-group">
+                    <label>Anything else Kelly should know?</label>
+                    <textarea id="custNotes" rows="3" placeholder="Colour themes, special requests, tight deadlines..."></textarea>
+                </div>
+
+                <!-- ORDER SUMMARY -->
+                <div class="order-summary-final" id="orderSummaryFinal"></div>
+
+                <div class="step-footer">
+                    <button class="btn-back" id="backToStep2">← Back</button>
+                    <button class="btn-submit" id="submitOrderBtn">
+                        <span id="submitText">Submit Order Request 🎀</span>
+                        <span id="submitSpinner" style="display:none">Sending...</span>
+                    </button>
+                </div>
+                <p class="order-disclaimer">Kelly will review your order and confirm all details with you before any payment is taken.</p>
+            </div>
+
         </div>
     </main>
 
@@ -152,35 +172,22 @@
         <div class="modal-box">
             <div class="modal-icon">🎉</div>
             <h2>Order Sent!</h2>
-            <p>Thanks! Kelly will be in touch shortly to confirm your order and discuss the details.</p>
+            <p>Thank you! Kelly will be in touch shortly to confirm your order and discuss the details.</p>
             <p class="modal-ref" id="modalRef"></p>
             <a href="../index.html" class="btn-primary" style="margin-top:0">Back to Home</a>
         </div>
     </div>
 
+    <a href="https://wa.me/447305016480?text=Hi%20Kelly%2C%20I%27d%20like%20to%20place%20an%20order" class="floating-order-btn" target="_blank">💬 Message Kelly</a>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-links">
-                <div class="footer-column">
-                    <h4>Shop</h4>
-                    <a href="../shop.html">All Products</a>
-                    <a href="../shop.html#bridesmaid">Bridesmaid Gifts</a>
-                </div>
-                <div class="footer-column">
-                    <h4>Information</h4>
-                    <a href="../price-list.html">Price List</a>
-                    <a href="../about.html">About</a>
-                </div>
-                <div class="footer-column">
-                    <h4>Legal</h4>
-                    <a href="../terms-conditions.html">Terms & Conditions</a>
-                    <a href="../privacy-policy.html">Privacy Policy</a>
-                </div>
+                <div class="footer-column"><h4>Shop</h4><a href="../shop.html">All Products</a><a href="../shop.html#bridesmaid">Bridesmaid Gifts</a></div>
+                <div class="footer-column"><h4>Information</h4><a href="../price-list.html">Price List</a><a href="../about.html">About</a></div>
+                <div class="footer-column"><h4>Legal</h4><a href="../terms-conditions.html">Terms & Conditions</a><a href="../privacy-policy.html">Privacy Policy</a></div>
             </div>
-            <div class="footer-bottom">
-                <p>Handcrafted with love in the UK</p>
-                <p>&copy; 2026 Made by Kelly. All rights reserved.</p>
-            </div>
+            <div class="footer-bottom"><p>Handcrafted with love in the UK</p><p>&copy; 2026 Made by Kelly. All rights reserved.</p></div>
         </div>
     </footer>
 
